@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Transliterator</title>
+	<title>만주문자 ↔ 로마자 변환기</title>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
 
 
 </head>
@@ -20,33 +20,34 @@
 			<div class="dropdown">
 				<button class="dropbtn">Language</button>
 				<div class="dropdown-content">
-					English
-					<a href="#">Korean</a>
+					<a href="../en/index.html">English</a>
+					Korean
 				</div>
 			</div>
 
 			<div id="title">
-				<h1>Manchu Transliterator</h1>
-				<p>Lowercase only, based mostly on Möllendorff, Babelpad and partially on CMCD transliteration</p>
+				<h1>만문 전자기</h1>
+				<p>만주문자 ↔ 로마자 변환기. 영문 소문자만 입력해주세요.<br>
+				Transliteration rule is based mostly on Möllendorff, Babelpad and partially on CMCD transliteration</p>
 			</div>
 		</div>
 
 		<div class="row">
 			<button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
-				About Manchu
+				만문/만주어 더 알아보기
 			</button>
 
 			<div id="collapsable-nav" class="collapse navbar-collapse">
 			   	<ul id="nav-list" class="nav navbar-nav navbar-right">
 			     	<li>
-			          <a href="https://en.wikipedia.org/wiki/Manchu_alphabet">Wikipedia: Manchu alphabet</a>
+			          <a href="https://ko.wikipedia.org/wiki/%EB%A7%8C%EC%A3%BC_%EB%AC%B8%EC%9E%90">위키백과: 만주 문자</a>
 			      	</li>
 
 			      	<li>
-			          <a href="https://en.wikipedia.org/wiki/Transliterations_of_Manchu">Wikipedia: Transliteration of Manchu</a>
+			          <a href="https://en.wikipedia.org/wiki/Transliterations_of_Manchu">영문 위키백과: Transliteration of Manchu</a>
 			     	</li>
 			      	<li>
-			        	<a href="https://en.wikipedia.org/wiki/Manchu_language">Wikipedia: Manchu language</a>
+			        	<a href="https://ko.wikipedia.org/wiki/%EB%A7%8C%EC%A3%BC%EC%96%B4">위키백과: 만주어</a>
 			     	</li>
 			      	<li>
 			        	<a href="https://www.omniglot.com/writing/manchu.htm">Omniglot: Manchu writing</a>
@@ -63,14 +64,14 @@
 
 		<div class="row">
 			<div class="col-lg-5" id="BoxContainer"><textarea id="input"></textarea></div>
-			<div class="col-lg-2" id="BoxContainer"><button id="tl">Latin > Manchu</button><br><button id="copybtn">Copy Manchu</button><button id="clearbtn">Clear</button></div>
-			<div class="col-lg-5 thirdbox" id="BoxContainer"><div id="OutputTextBox">Output Here</div></div>
+			<div class="col-lg-2" id="BoxContainer"><button id="tl">로마자 > 만문</button><br><button id="copybtn">결과 복사</button><button id="clearbtn">결과 지우기</button></div>
+			<div class="col-lg-5 thirdbox" id="BoxContainer"><div id="OutputTextBox">변환 결과</div></div>
 		</div>
-		<div class="row"><button id="hidebtn">Hide/Show</button><form id="checkboxes"><p>Click the buttons to print characters on the box
+		<div class="row"><button id="hidebtn">보이기/숨기기</button><form id="checkboxes"><p>아래 버튼 클릭 시 출력되는 곳 선택 :
 																	<input type="checkbox" id="above" name="above" value="above" checked="checked">
-																	<label for="above">above</label>
+																	<label for="above">위</label>
 																	<input type="checkbox" id="below" name="below" value="below" checked="checked">
-																	<label for="below">below</label>
+																	<label for="below">아래</label>
 																</form> </div>
 
 
@@ -113,24 +114,24 @@
 			<div id="letterbox" class="letterbox"><div char_attr="ᡷ" id="lettercpy"><a>ᡷ</a></div><div id="latinlit">zh</div></div>
 			<div id="letterbox" class="letterbox"><div char_attr="ᡷᡳ" id="lettercpy"><a>ᡷᡳ</a></div><div id="latinlit">jy / zhi</div></div>
 			<div id="letterbox" class="letterbox"><div char_attr=" " id="lettercpy"><a> </a></div><div id="latinlit">SPACE</div></div>
-			<div id="letterbox" class="letterbox"><div char_attr="᠉" id="lettercpy"><a>᠉</a></div><div id="latinlit">Period</div></div>
-			<div id="letterbox" class="letterbox"><div char_attr="᠈" id="lettercpy"><a>᠈</a></div><div id="latinlit">Comma</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="᠉" id="lettercpy"><a>᠉</a></div><div id="latinlit">마침표</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="᠈" id="lettercpy"><a>᠈</a></div><div id="latinlit">쉼표</div></div>
 			<div id="con_letterputhere"><textarea id="letterputhere"></textarea></div>
-			<button id="copybtn2">Copy</button><button id="clearbtn2">Clear</button>
+			<button id="copybtn2">복사</button><button id="clearbtn2">지우기</button>
 		</div>
 
 
 		<div id="FootList" class="row">
 			<ul>
-				<li>The only characters you can type as input are followings:
+				<li>입력할 수 있는 문자들은 다음과 같습니다:
 					<ul>
-						<li>Alphabets that are listed above</li>
-						<li>Punctuation marks: period(.) and comma(,)</li>
-						<li>Blank space and line break</li>
+						<li>위 보이기/숨기기 버튼 아래 있는 문자들</li>
+						<li>마침표(.)와 쉼표(,)</li>
+						<li>공백과 줄바꿈</li>
 					</ul>
 				</li>
 				<li>
-					Any other undefined characters will not be printed
+					이외의 정의되지 않은 모든 문자는 출력되지 않습니다.
 				</li>
 				<li>
 					<a id="github" href="https://github.com/cm8908/cm8908.github.io">Feedback/Issues → GitHub</a>
@@ -139,7 +140,7 @@
 					Contact → jungminseob2@gmail.com
 				</li>
 				<li>
-					<a href="https://cm8908.github.io">Back</a>
+					<a href="https://cm8908.github.io">뒤로가기</a>
 				</li>
 			</ul>
 		</div>
