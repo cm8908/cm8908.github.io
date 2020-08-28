@@ -1,2 +1,4 @@
 Transliterators  
-[LA > MA](cm8908.github.io/translit/mnc/index.html)
+
+
+[LA > MA](https://cm8908.github.io/translit/mnc/index.html)
