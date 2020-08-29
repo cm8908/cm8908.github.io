@@ -22,6 +22,7 @@
 				<div class="dropdown-content">
 					English
 					<a href="../ko/index.html">Korean</a>
+					<a href="../ja/index.html">Japanese</a>
 				</div>
 			</div>
 
@@ -62,10 +63,11 @@
 		</div>
 
 		<div class="row">
-			<div class="col-lg-5" id="BoxContainer"><textarea id="input"></textarea></div>
-			<div class="col-lg-2" id="BoxContainer"><button id="tl">Latin > Manchu</button><br><button id="copybtn">Copy Manchu</button><button id="clearbtn">Clear</button></div>
-			<div class="col-lg-5 thirdbox" id="BoxContainer"><div id="OutputTextBox">Output Here</div></div>
+			<div class="col-lg-5" id="BoxContainer"><textarea placeholder="Latin script" id="input"></textarea></div>
+			<div class="col-lg-2" id="BoxContainer"><button id="tl">Latin → Manchu</button><button id="rvtl">Latin ← Manchu</button><br></div>
+			<div class="col-lg-5 thirdbox" id="BoxContainer"><div contenteditable id="OutputTextBox">Manchu script</div></div>
 		</div>
+		<div class="row" id="boxbtn"><div><button id="copybtn">Copy Manchu</button><button id="clearbtn">Clear Manchu</button><button id="clearbtn_l">Clear Latin</button><button id="copybtn_l">Copy Latin</button></div></div>
 		<div class="row"><button id="hidebtn">Show/Hide</button><form id="checkboxes"><p>Click the buttons to print characters on the box
 																	<input type="checkbox" id="above" name="above" value="above" checked="checked">
 																	<label for="above">above</label>
@@ -146,12 +148,12 @@
 
 		<div class="row">
 			
-			<button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+			<button id="navbarToggle2" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav2" aria-expanded="false">
 				Other features
 			</button>
 
-			<div id="collapsable-nav" class="collapse navbar-collapse">
-			   	<ul id="nav-list" class="nav navbar-nav navbar-right">
+			<div id="collapsable-nav2" class="collapse navbar-collapse">
+			   	<ul id="nav-list2" class="nav navbar-nav navbar-right">
 			     	<li>
 			          <a href="#">Cyrillic - Latin transliteratior</a>
 			      	</li>

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>만주문자 ↔ 로마자 변환기</title>
+	<title>満州文字　変換機</title>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+    
 
 
 </head>
@@ -21,34 +22,33 @@
 				<button class="dropbtn">Language</button>
 				<div class="dropdown-content">
 					<a href="../en/index.html">English</a>
-					Korean
-					<a href="../ja/index.html">Japanese</a>
+					<a href="../ko/index.html">Korean</a>
+					Japanese
 				</div>
 			</div>
 
 			<div id="title">
-				<h1>만문 전자기</h1>
-				<p>만주문자 ↔ 로마자 변환기. 영문 소문자만 입력해주세요.<br>
-				Transliteration rule is based mostly on Möllendorff, Babelpad and partially on CMCD transliteration</p>
+				<h1>ローマ字 ↔ 満州文字　変換機</h1>
+				<p>小文字のみ対応、主にMöllendorff、Babelpad、および部分的にCMCD文字変換に拠ります</p>
 			</div>
 		</div>
 
 		<div class="row">
 			<button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
-				만문/만주어 더 알아보기
+				満州語/満州文字について
 			</button>
 
 			<div id="collapsable-nav" class="collapse navbar-collapse">
 			   	<ul id="nav-list" class="nav navbar-nav navbar-right">
 			     	<li>
-			          <a href="https://ko.wikipedia.org/wiki/%EB%A7%8C%EC%A3%BC_%EB%AC%B8%EC%9E%90">위키백과: 만주 문자</a>
+			          <a href="https://ja.wikipedia.org/wiki/%E6%BA%80%E5%B7%9E%E6%96%87%E5%AD%97">ウィキペディア: 満州文字</a>
 			      	</li>
 
 			      	<li>
-			          <a href="https://en.wikipedia.org/wiki/Transliterations_of_Manchu">영문 위키백과: Transliteration of Manchu</a>
+			          <a href="https://en.wikipedia.org/wiki/Transliterations_of_Manchu">英語版ウィキペディア: Transliteration of Manchu</a>
 			     	</li>
 			      	<li>
-			        	<a href="https://ko.wikipedia.org/wiki/%EB%A7%8C%EC%A3%BC%EC%96%B4">위키백과: 만주어</a>
+			        	<a href="https://ja.wikipedia.org/wiki/%E6%BA%80%E5%B7%9E%E8%AA%9E">ウィキペディア: 満州語</a>
 			     	</li>
 			      	<li>
 			        	<a href="https://www.omniglot.com/writing/manchu.htm">Omniglot: Manchu writing</a>
@@ -64,16 +64,16 @@
 		</div>
 
 		<div class="row">
-			<div class="col-lg-5" id="BoxContainer"><textarea placeholder="라틴 알파벳" id="input"></textarea></div>
-			<div class="col-lg-2" id="BoxContainer"><button id="tl">로마자 → 만문</button><button id="rvtl">로마자 ← 만문</button><br></div>
-			<div class="col-lg-5 thirdbox" id="BoxContainer"><div contenteditable id="OutputTextBox">만주 문자</div></div>
+			<div class="col-lg-5" id="BoxContainer"><textarea placeholder="ラテンアルファベット" id="input"></textarea></div>
+			<div class="col-lg-2" id="BoxContainer"><button id="tl">ローマ字 → 満州文字</button><button id="rvtl">ローマ字 ← 満州文字</button><br></div>
+			<div class="col-lg-5 thirdbox" id="BoxContainer"><div contenteditable id="OutputTextBox">満州文字</div></div>
 		</div>
-		<div class="row" id="boxbtn"><div><button id="copybtn">만문 복사</button><button id="clearbtn">만문 지우기</button><button id="clearbtn_l">로마자 지우기</button><button id="copybtn_l">로마자 복사</button></div></div>
-		<div class="row"><button id="hidebtn">보이기/숨기기</button><form id="checkboxes"><p>아래 버튼 클릭 시 출력되는 곳 선택 :
+		<div class="row" id="boxbtn"><div><button id="copybtn">満州文字をコピー</button><button id="clearbtn">満州文字を消去</button><button id="clearbtn_l">ローマ字消去</button><button id="copybtn_l">ローマ字をコピー<</button></div></div>
+		<div class="row"><button id="hidebtn">表示/非表示</button><form id="checkboxes"><p>印刷するボックスの方をクリックしてください。
 																	<input type="checkbox" id="above" name="above" value="above" checked="checked">
-																	<label for="above">위</label>
+																	<label for="above">上</label>
 																	<input type="checkbox" id="below" name="below" value="below" checked="checked">
-																	<label for="below">아래</label>
+																	<label for="below">下</label>
 																</form> </div>
 
 
@@ -116,24 +116,24 @@
 			<div id="letterbox" class="letterbox"><div char_attr="ᡷ" id="lettercpy"><a>ᡷ</a></div><div id="latinlit">zh</div></div>
 			<div id="letterbox" class="letterbox"><div char_attr="ᡷᡳ" id="lettercpy"><a>ᡷᡳ</a></div><div id="latinlit">jy / zhi</div></div>
 			<div id="letterbox" class="letterbox"><div char_attr=" " id="lettercpy"><a> </a></div><div id="latinlit">SPACE</div></div>
-			<div id="letterbox" class="letterbox"><div char_attr="᠉" id="lettercpy"><a>᠉</a></div><div id="latinlit">마침표</div></div>
-			<div id="letterbox" class="letterbox"><div char_attr="᠈" id="lettercpy"><a>᠈</a></div><div id="latinlit">쉼표</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="᠉" id="lettercpy"><a>᠉</a></div><div id="latinlit">ピリオド</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="᠈" id="lettercpy"><a>᠈</a></div><div id="latinlit">カンマ</div></div>
 			<div id="con_letterputhere"><textarea id="letterputhere"></textarea></div>
-			<button id="copybtn2">복사</button><button id="clearbtn2">지우기</button>
+			<button id="copybtn2">コピー</button><button id="clearbtn2">消去</button>
 		</div>
 
 
 		<div id="FootList" class="row">
 			<ul>
-				<li>입력할 수 있는 문자들은 다음과 같습니다:
+				<li>入力できる文字は以下のとおりです。
 					<ul>
-						<li>위 보이기/숨기기 버튼 아래 있는 문자들</li>
-						<li>마침표(.)와 쉼표(,)</li>
-						<li>공백과 줄바꿈</li>
+						<li>上記のアルファベット</li>
+						<li>ピリオド (.) およびカンマ (,)</li>
+						<li>空白および改行</li>
 					</ul>
 				</li>
 				<li>
-					이외의 정의되지 않은 모든 문자는 출력되지 않습니다.
+					その他の定義されていない文字は印刷されません。
 				</li>
 				<li>
 					<a id="github" href="https://github.com/cm8908/cm8908.github.io">Feedback/Issues → GitHub</a>
@@ -142,7 +142,7 @@
 					Contact → jungminseob2@gmail.com
 				</li>
 				<li>
-					<a href="https://cm8908.github.io">뒤로가기</a>
+					<a href="https://cm8908.github.io">Back</a>
 				</li>
 			</ul>
 		</div>

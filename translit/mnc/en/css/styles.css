@@ -129,6 +129,45 @@ div#title {
 
 /*END About NAV BAR*/
 
+/*2nd About NAVBAR*/
+#navbarToggle2 {
+	background-color: #0a6c56;
+  	border: none;
+  	/*padding: 15px 32px;*/
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+ 	/*font-size: 16px;*/
+ 	width: 100%;
+ 	outline: none;
+ 	padding: 5px;
+}
+
+#collapsable-nav2 {
+	text-align: center;
+}
+
+#collapsable-nav2 li{
+	padding: 5px;
+	transition-duration: 0.3s;
+}
+
+#collapsable-nav2 li:hover{
+	background-color: #0a6c56;
+
+}
+
+#nav-list2 a {
+	color: black;
+}
+
+#nav-list2 a:hover {
+	text-decoration: none;
+	
+}
+
+/*END 2nd About NAV BAR*/
+
 
 
 
@@ -202,15 +241,56 @@ div#title {
 	margin-top: 15px;
 }
 
+#rvtl {
+	margin-top: 5px;
+}
+
+
+/*Clear and Copy button for both boxes*/
+#boxbtn {
+	padding: 0px;
+}
+#boxbtn > div {
+	width: 100%;
+}
+
+
 #copybtn {
 /*	position: relative;
 	top: 5px;*/
-	margin: 5px;
+	/*margin: 5px;*/
+	float: right;
+	margin-right: 20px;
+}
+
+#clearbtn {
+	margin-right: 5px;
+	float: right;
+
+}
+
+#copybtn_l {
+/*	position: relative;
+	top: 5px;*/
+	/*margin: 5px;*/
+}
+
+#clearbtn_l {
+	margin-right: 5px;
+	margin-left: 20px;
+}
+
+/*END Clear and Copy button for both boxes*/
+
+#hidebtn {
+	margin-left: 10px;
 }
 
 #clearbtn2 {
 	margin-left: 10px;
 }
+
+
 
 #BoxContainer {
 	text-align: center;
@@ -236,8 +316,8 @@ div#title {
 	text-align: center;
 	width: 100%;
 	height: 100px;
-/*	position: relative;
-	top: 20px;*/
+	position: relative;
+	top: 20px;
 }
 
 #input {
@@ -254,8 +334,14 @@ div#title {
 
 @media (min-width: 992px) {
 	.col-lg-2#BoxContainer {
-		top: 200px;
+		top: 210px;
 	}
 
+}
+
+@media (max-width: 991px) {
+	#rvtl {
+	margin-left: 5px;
+}
 }
 

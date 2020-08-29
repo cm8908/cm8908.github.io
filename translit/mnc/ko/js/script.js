@@ -15,6 +15,17 @@ document.addEventListener("DOMContentLoaded",
 			document.body.removeChild(tempElm);
 		});
 
+		// Latin output COPY button
+		document.querySelector("#copybtn_l").addEventListener("click", function() {
+			var tempElm = document.createElement('textarea');
+			tempElm.value = document.getElementById("input").value;
+			document.body.appendChild(tempElm);
+
+			tempElm.select();
+			document.execCommand("copy");
+			document.body.removeChild(tempElm);
+		});
+
 		//Below COPY button
 		document.querySelector("#copybtn2").addEventListener("click", function() {
 			var tempElm = document.createElement('textarea');
@@ -29,6 +40,11 @@ document.addEventListener("DOMContentLoaded",
 		//Manchu output CLEAR button
 		document.querySelector("#clearbtn").addEventListener("click", function() {
 			document.querySelector("#OutputTextBox").textContent = "";
+		});
+
+		//Latin output CLEAR button
+		document.querySelector("#clearbtn_l").addEventListener("click", function() {
+			document.querySelector("#input").value = "";
 		});
 
 		//Below CLEAR button
@@ -54,11 +70,10 @@ document.addEventListener("DOMContentLoaded",
 
 				
 				if (chkAbove.checked) {
-					if (document.querySelector("#OutputTextBox").textContent === "Output Here") {
+					if (document.querySelector("#OutputTextBox").textContent === "만주 문자") {
 						document.querySelector("#OutputTextBox").textContent = "";
 					}
 					document.querySelector("#OutputTextBox").textContent += $(this).attr("char_attr");
-					console.log($(this).attr("char_attr"));
 				}
 				
 
@@ -244,8 +259,132 @@ document.addEventListener("DOMContentLoaded",
 
 		}
 
+	function rvTL (event) {
+			var inputText = document.getElementById("OutputTextBox").textContent;
+			var outputText = new Array();
+
+			for (var i = 0; i < inputText.length; i++) {
+				if (inputText[i] == "ᠠ") {
+					outputText[i] = "a";
+				} else if (inputText[i] == "ᡝ") {
+					outputText[i] = "e";
+				} else if (inputText[i] == "ᡳ") {
+					outputText[i] = "i";
+				} else if (inputText[i] == "ᠣ") {
+					outputText[i] = "o";
+				} else if (inputText[i] == "ᡠ") {
+					outputText[i] = "u";
+				} else if (inputText[i] == "ᡳ") {
+					outputText[i] = "i";
+				} else if (inputText[i] == "ᡡ") {
+					outputText[i] = "ū";
+				} else if (inputText[i] == "ᠨ") {
+					outputText[i] = "n";
+				} else if (inputText[i] == "ᠩ") {
+					outputText[i] = "ng";
+				} else if (inputText[i] == "ᡴ") {
+					outputText[i] = "k";
+				} else if (inputText[i] == "ᡤ") {
+					outputText[i] = "g";
+				} else if (inputText[i] == "ᡥ") {
+					outputText[i] = "h";
+				} else if (inputText[i] == "ᠪ") {
+					outputText[i] = "b";
+				} else if (inputText[i] == "ᡦ") {
+					outputText[i] = "p";
+				} else if (inputText[i] == "ᠰ") {
+					if (inputText[i+1] == "ᡟ") {
+						outputText[i] = "sy";
+						i += 1;
+					} else {
+						outputText[i] = "s";
+					}
+				} else if (inputText[i] == "ᡧ") {
+					outputText[i] = "š";
+				} else if (inputText[i] == "ᡨ") {
+					outputText[i] = "t";
+				} else if (inputText[i] == "ᡩ") {
+					outputText[i] = "d";
+				} else if (inputText[i] == "ᠯ") {
+					outputText[i] = "l";
+				} else if (inputText[i] == "ᠮ") {
+					outputText[i] = "m";
+				} else if (inputText[i] == "ᠴ") {
+					outputText[i] = "c";
+				} else if (inputText[i] == "ᠵ") {
+					outputText[i] = "j";
+				} else if (inputText[i] == "ᠶ") {
+					outputText[i] = "y";
+				} else if (inputText[i] == "ᡵ") {
+					outputText[i] = "r";
+				} else if (inputText[i] == "ᡶ") {
+					outputText[i] = "f";
+				} else if (inputText[i] == "ᠸ") {
+					outputText[i] = "w";
+				} else if (inputText[i] == "ᠺ") {
+					outputText[i] = "k\'";
+				} else if (inputText[i] == "ᡬ") {
+					outputText[i] = "g\'";
+				} else if (inputText[i] == "ᡭ") {
+					outputText[i] = "h\'";
+				} else if (inputText[i] == "ᡮ") {
+					if (inputText[i+1] == "ᡟ") {
+						outputText[i] = "ts";
+						i += 1;
+					} else {
+						outputText[i] = "ts\'";
+					}
+				} else if (inputText[i] == "ᡯ") {
+					outputText[i] = "dz";
+				} else if (inputText[i] == "ᡰ") {
+					outputText[i] = "ž";
+				} else if (inputText[i] == "ᡱ") {
+					if (intputText[i+1] == "ᡳ") {
+						outputText[i] = "c\'y";
+						i += 1;
+					} else {
+						outputText[i] = "c\'";
+					}
+				} else if (inputText[i] == "ᡷ") {
+					if (intputText[i+1] == "ᡳ") {
+						outputText[i] = "jy";
+						i += 1;
+					} else {
+						outputText[i] = "zh";
+					}
+					outputText[i] = "zh";
+				} else if (inputText[i] == " ") {
+					outputText[i] = " ";
+				} else if (inputText[i] == "\n") {
+					outputText[i] = "\n";
+				} else if (inputText[i] == "᠉") {
+					outputText[i] = ".";
+				} else if (inputText[i] == "᠈") {
+					outputText[i] = ",";
+				} 
+
+				if (outputText[i] == undefined) {
+					outputText[i] = "";
+				} 	
+			}
+
+			var result = "";
+
+			for (i = 0; i < outputText.length; i++) {
+				result += outputText[i];
+			}
+
+
+			document.getElementById("input")
+					.value = result;
+
+		}
+
 		document.querySelector("button#tl")
 				.addEventListener("click", TL);
+
+		document.querySelector("button#rvtl")
+				.addEventListener("click", rvTL);
 
 		// document.querySelector("button#hidebtn")
 		// 		.addEventListener("click", hideshow());

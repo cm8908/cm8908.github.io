@@ -1,5 +1,5 @@
 * {
-	font-family: 'Nanum Myeongjo', serif;
+	font-family: 'Kosugi Maru', sans-serif;
 }
 
 h1 {
@@ -169,6 +169,8 @@ div#title {
 /*END 2nd About NAV BAR*/
 
 
+
+
 /*container for the whole line*/
 #letterbox {
 	float: left;
@@ -243,6 +245,7 @@ div#title {
 	margin-top: 5px;
 }
 
+
 /*Clear and Copy button for both boxes*/
 #boxbtn {
 	padding: 0px;
@@ -286,6 +289,8 @@ div#title {
 #clearbtn2 {
 	margin-left: 10px;
 }
+
+
 
 #BoxContainer {
 	text-align: center;
@@ -339,3 +344,4 @@ div#title {
 	margin-left: 5px;
 }
 }
+
