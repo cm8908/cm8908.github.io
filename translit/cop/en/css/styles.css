@@ -1,0 +1,348 @@
+* {
+	font-family: 'Alata', sans-serif;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+p {
+	text-align: center;
+
+}
+
+ul {
+
+}
+
+button {
+	/*background-color: #000000;*/
+	border: .5px solid black;
+	transition-duration: 0.5s;
+
+}
+
+button:hover {
+	background-color: #A8A8A8;
+}
+
+.row#headrow {
+	padding: 0;
+	background-color: #0a6c56;
+	color: black;
+}
+
+div#title {
+	width: ;
+	text-align: center;
+	width: 100%;
+}
+
+
+.dropbtn {
+  background-color: gray;
+  color: white;
+  /*padding: 16px;*/
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  text-align: center;
+}
+
+.dropdown-content:hover {
+	cursor: default;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 5px 0 5px 0;
+  text-decoration: none;
+  display: block;
+  
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+.bg-img {
+	background-image: url('../resources/background.jpg');
+	/*filter: blur(2px);*/
+	/*background-repeat: no-repeat;*/
+}
+
+
+
+/*About NAVBAR*/
+#navbarToggle {
+	background-color: #0a6c56;
+  	border: none;
+  	/*padding: 15px 32px;*/
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+ 	/*font-size: 16px;*/
+ 	width: 100%;
+ 	outline: none;
+ 	padding: 5px;
+}
+
+#collapsable-nav {
+	text-align: center;
+}
+
+#collapsable-nav li{
+	padding: 5px;
+	transition-duration: 0.3s;
+}
+
+#collapsable-nav li:hover{
+	background-color: #0a6c56;
+
+}
+
+#nav-list a {
+	color: black;
+}
+
+#nav-list a:hover {
+	text-decoration: none;
+	
+}
+
+/*END About NAV BAR*/
+
+/*2nd About NAVBAR*/
+#navbarToggle2 {
+	background-color: #0a6c56;
+  	border: none;
+  	/*padding: 15px 32px;*/
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+ 	/*font-size: 16px;*/
+ 	width: 100%;
+ 	outline: none;
+ 	padding: 5px;
+}
+
+#collapsable-nav2 {
+	text-align: center;
+}
+
+#collapsable-nav2 li{
+	padding: 5px;
+	transition-duration: 0.3s;
+}
+
+#collapsable-nav2 li:hover{
+	background-color: #0a6c56;
+
+}
+
+#nav-list2 a {
+	color: black;
+}
+
+#nav-list2 a:hover {
+	text-decoration: none;
+	
+}
+
+/*END 2nd About NAV BAR*/
+
+
+
+
+/*container for the whole line*/
+#letterbox {
+	float: left;
+	background-color: #F0F0F0;
+	/*border: 2px solid gray;*/
+	margin: 5px;
+}
+
+/*square container for manchu character*/
+#lettercpy {
+	float: left;
+	font-size: 2em;
+	/*writing-mode: vertical-lr;*/
+	border: 2px solid gray;
+	background-color: #DCDCDC;
+	height: 35px;
+	width: 35px;
+	transition-duration: 0.3s;
+}
+
+#lettercpy:hover {
+	cursor: pointer;
+	background-color: #A8A8A8;
+}
+
+#lettercpy:active {
+	border: 2px solid black;
+}
+
+
+/*manchu character*/
+#lettercpy a {
+	position: relative;
+	left: 6px;
+	bottom: 10px;
+}
+
+/*latin character for manchu one*/
+#latinlit {
+	float: left;
+	margin: -5px 20px 5px 10px;
+	font-size: 1.5em;
+}
+
+#rowforletterbox {
+	display: none;
+	float: left;
+}
+
+/*LETTER PUT HERE Textarea*/
+#letterputhere {
+	width: 100%;
+	font-size: 2em;
+}
+
+#con_letterputhere {
+	width: 100%;
+}
+
+.row {
+	width: 90%;
+	margin: 0;
+	background-color: #ffcd21;
+	padding: 20px 0 20px;
+}
+
+#tl {
+	margin-top: 15px;
+}
+
+#rvtl {
+	margin-top: 5px;
+}
+
+
+/*Clear and Copy button for both boxes*/
+#boxbtn {
+	padding: 0px;
+}
+#boxbtn > div {
+	width: 100%;
+}
+
+
+#copybtn {
+/*	position: relative;
+	top: 5px;*/
+	/*margin: 5px;*/
+	float: right;
+	margin-right: 20px;
+}
+
+#clearbtn {
+	margin-right: 5px;
+	float: right;
+
+}
+
+#copybtn_l {
+/*	position: relative;
+	top: 5px;*/
+	/*margin: 5px;*/
+}
+
+#clearbtn_l {
+	margin-right: 5px;
+	margin-left: 20px;
+}
+
+/*END Clear and Copy button for both boxes*/
+
+#hidebtn {
+	margin-left: 10px;
+}
+
+#clearbtn2 {
+	margin-left: 10px;
+}
+
+
+
+#BoxContainer {
+	text-align: center;
+	width: 100%;
+	height: 500px;
+}
+
+.thirdbox#BoxContainer {
+/*	writing-mode: vertical-lr;*/
+/*	font-size: 2.5em;*/
+/*	clear: right;*/
+}
+
+#OutputTextBox {
+	width: 100%;
+	height: 100%;
+	border: 1px black solid;
+	background-color: white;
+	overflow: auto;
+}
+
+
+.col-lg-2#BoxContainer {
+	text-align: center;
+	width: 100%;
+	height: 100px;
+	position: relative;
+	top: 20px;
+}
+
+#input {
+	width: 100%;
+	height: 100%;
+}
+
+#checkboxes {
+	margin-left: 10px;
+	margin-bottom: -10px;
+}
+
+
+
+@media (min-width: 992px) {
+	.col-lg-2#BoxContainer {
+		top: 210px;
+	}
+
+}
+
+@media (max-width: 991px) {
+	#rvtl {
+	margin-left: 5px;
+}
+}
+

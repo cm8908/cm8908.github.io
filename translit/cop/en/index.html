@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coptic Transliterator</title>
+	<meta name="description=" content="Manchu transliterator/Manchu - Latin script converter provides a character transfer tool for manchu alphabet and latin alphabet. Based on transliteration systems of manchu script.">
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+	<div class="bg-img">
+
+	<div class="container">
+
+		<div class="row" id="headrow">
+			<div class="dropdown">
+				<button class="dropbtn">Language</button>
+				<div class="dropdown-content">
+					English
+					<a href="../ko/index.html">Korean</a>
+					<a href="../ja/index.html">Japanese</a>
+				</div>
+			</div>
+
+			<div id="title">
+				<h1>Latin ↔ Coptic Transliterator</h1>
+				<p>description</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+				About Coptic
+			</button>
+
+			<div id="collapsable-nav" class="collapse navbar-collapse">
+			   	<ul id="nav-list" class="nav navbar-nav navbar-right">
+			     	<li>
+			          <a href="https://en.wikipedia.org/wiki/Manchu_alphabet">Wikipedia: Manchu alphabet</a>
+			      	</li>
+
+			      	<li>
+			          <a href="https://en.wikipedia.org/wiki/Transliterations_of_Manchu">Wikipedia: Transliteration of Manchu</a>
+			     	</li>
+			      	<li>
+			        	<a href="https://en.wikipedia.org/wiki/Manchu_language">Wikipedia: Manchu language</a>
+			     	</li>
+			      	<li>
+			        	<a href="https://www.omniglot.com/writing/manchu.htm">Omniglot: Manchu writing</a>
+			     	</li>
+			     	<li>
+			        	<a href="https://www.manchustudiesgroup.org/">Manchu Studies Group</a>
+			     	</li>
+			     	<li>
+			        	<a href="https://en.m.wikibooks.org/wiki/Manchu">Wikibooks: Manchu</a>
+			     	</li>
+			    </ul>
+  			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-5" id="BoxContainer"><textarea placeholder="Latin script" id="input"></textarea></div>
+			<div class="col-lg-2" id="BoxContainer"><button id="tl">Latin → Coptic</button><button id="rvtl">Latin ← Coptic</button><br></div>
+			<div class="col-lg-5 thirdbox" id="BoxContainer"><div contenteditable id="OutputTextBox">Coptic script</div></div>
+		</div>
+		<div class="row" id="boxbtn"><div><button id="copybtn">Copy Coptic</button><button id="clearbtn">Clear Coptic</button><button id="clearbtn_l">Clear Latin</button><button id="copybtn_l">Copy Latin</button></div></div>
+		<div class="row"><button id="hidebtn">Show/Hide</button><form id="checkboxes"><p>Click the buttons to print characters on the box
+																	<input type="checkbox" id="above" name="above" value="above" checked="checked">
+																	<label for="above">above</label>
+																	<input type="checkbox" id="below" name="below" value="below" checked="checked">
+																	<label for="below">below</label>
+																</form> </div>
+
+
+		<div class="row" id="rowforletterbox">
+			<div id="letterbox" class="letterbox"><div char_attr="ⲁ" id="lettercpy"><a>ⲁ</a></div><div id="latinlit">a</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲃ" id="lettercpy"><a>ⲃ</a></div><div id="latinlit">e</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲅ" id="lettercpy"><a>ⲅ</a></div><div id="latinlit">i</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲇ" id="lettercpy"><a>ⲇ</a></div><div id="latinlit">o</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲉ" id="lettercpy"><a>ⲉ</a></div><div id="latinlit">u</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲋ" id="lettercpy"><a>ⲋ</a></div><div id="latinlit">ū / v / uu</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲍ" id="lettercpy"><a>ⲍ</a></div><div id="latinlit">n</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲏ" id="lettercpy"><a>ⲏ</a></div><div id="latinlit">ng</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲑ" id="lettercpy"><a>ⲑ</a></div><div id="latinlit">k</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲓ" id="lettercpy"><a>ⲓ</a></div><div id="latinlit">g</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲕ" id="lettercpy"><a>ⲕ</a></div><div id="latinlit">h</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲗ" id="lettercpy"><a>ⲗ</a></div><div id="latinlit">b</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲙ" id="lettercpy"><a>ⲙ</a></div><div id="latinlit">p</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲛ" id="lettercpy"><a>ⲛ</a></div><div id="latinlit">s</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲝ" id="lettercpy"><a>ⲝ</a></div><div id="latinlit">š / x / sh</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲟ" id="lettercpy"><a>ⲟ</a></div><div id="latinlit">t</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲡ" id="lettercpy"><a>ⲡ</a></div><div id="latinlit">d</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲣ" id="lettercpy"><a>ⲣ</a></div><div id="latinlit">l</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲥ" id="lettercpy"><a>ⲥ</a></div><div id="latinlit">m</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲧ" id="lettercpy"><a>ⲧ</a></div><div id="latinlit">c</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲩ" id="lettercpy"><a>ⲩ</a></div><div id="latinlit">j</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲫ" id="lettercpy"><a>ⲫ</a></div><div id="latinlit">y</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲭ" id="lettercpy"><a>ⲭ</a></div><div id="latinlit">r</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲯ" id="lettercpy"><a>ⲯ</a></div><div id="latinlit">f</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⲱ" id="lettercpy"><a>ⲱ</a></div><div id="latinlit">w</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ϣ" id="lettercpy"><a>ϣ</a></div><div id="latinlit">k' / kh</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ϥ" id="lettercpy"><a>ϥ</a></div><div id="latinlit">g' / gh</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ϧ" id="lettercpy"><a>ϧ</a></div><div id="latinlit">h' / hh</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ϩ" id="lettercpy"><a>ϩ</a></div><div id="latinlit">ts'</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ϫ" id="lettercpy"><a>ϫ</a></div><div id="latinlit">ts</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ϭ" id="lettercpy"><a>ϭ</a></div><div id="latinlit">dz</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ϯ" id="lettercpy"><a>ϯ</a></div><div id="latinlit">ž / z</div></div>
+			<div id="letterbox" class="letterbox"><div char_attr="ⳁ" id="lettercpy"><a>ⳁ</a></div><div id="latinlit">sy</div></div>
+			<div id="con_letterputhere"><textarea id="letterputhere"></textarea></div>
+			<button id="copybtn2">Copy</button><button id="clearbtn2">Clear</button>
+		</div>
+
+
+		<div id="FootList" class="row">
+			<ul>
+				<li>The only characters you can type as input are followings:
+					<ul>
+						<li>Alphabets that are listed above</li>
+						<li>Punctuation marks: period(.) and comma(,)</li>
+						<li>Blank space and line break</li>
+					</ul>
+				</li>
+				<li>
+					Any other undefined characters will not be printed
+				</li>
+				<li>
+					<a id="github" href="https://github.com/cm8908/cm8908.github.io">Feedback/Issues → GitHub</a>
+				</li>
+				<li>
+					Contact → jungminseob2@gmail.com
+				</li>
+				<li>
+					<a href="https://cm8908.github.io">Back</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="row">
+			
+			<button id="navbarToggle2" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav2" aria-expanded="false">
+				Other features
+			</button>
+
+			<div id="collapsable-nav2" class="collapse navbar-collapse">
+			   	<ul id="nav-list2" class="nav navbar-nav navbar-right">
+			     	<li>
+			          <a href="https://cm8908.github.io/translit/mnc/en/index.html">Manchu - Latin transliteratior</a>
+			      	</li>
+			    </ul>
+  			</div>
+		</div>
+
+
+		
+	</div> <!-- END of .container -->
+
+	
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+	
+</div>
+</body>
+</html>
