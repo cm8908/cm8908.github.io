@@ -1,6 +1,7 @@
 @font-face {
     font-family: CMR;
-    src: url(../fonts/cmuserif_roman_macroman/cmunrm-webfont.woff);
+    /* src: url(../fonts/cmuserif_roman_macroman/cmunrm-webfont.woff); */
+    src: url(../fonts/cmuserif_roman_macroman/HY신명조.TTF);
   }
   @font-face {
     font-family: CMB;
