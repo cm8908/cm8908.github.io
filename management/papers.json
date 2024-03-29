@@ -3,17 +3,30 @@
         {
             "title": "Generating 3D CAD Models using a Transformer Autoencoders and a Diffusion Model",
             "time": 1711676560.28671,
+<<<<<<< HEAD
             "href": "/papers/cadgen-kor.html"
+=======
+            "href": "/papers\\cadgen-kor.html"
+>>>>>>> 2c65f3f7413451b12a2171db20494ce985bac67a
         },
         {
             "title": "A Lightweight CNN-Transformer Model for Learning Traveling Salesman Problems",
             "time": 1711549221.8530643,
+<<<<<<< HEAD
             "href": "/papers/cnn_transformer.html"
         },
         {
             "title": "Contrastive Learning-based Representation Learning for Computer-Aided design models",
             "time": 1711550069.4042475,
             "href": "/papers/contrastcad.html"
+=======
+            "href": "/papers\\cnn_transformer.html"
+        },
+        {
+            "title": "Contrastive Learning-based Representation Learning for Computer-Aided design models\"",
+            "time": 1711550069.4042475,
+            "href": "/papers\\contrastcad.html"
+>>>>>>> 2c65f3f7413451b12a2171db20494ce985bac67a
         }
     ]
 }

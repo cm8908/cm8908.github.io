@@ -12,6 +12,7 @@
 a {
     text-decoration: none; /* 하이퍼링크의 밑줄 제거 */
 }
+<<<<<<< HEAD
 
 a:hover{
     text-decoration: underline;
@@ -20,6 +21,8 @@ a:hover{
 a:visited{
     color:darkolivegreen;
 }
+=======
+>>>>>>> 2c65f3f7413451b12a2171db20494ce985bac67a
 
 .LatexTitle{
     font-family: CMR;
