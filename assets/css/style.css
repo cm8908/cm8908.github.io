@@ -9,6 +9,9 @@
     src: url(../fonts/chosun_mj/ChosunKm.TTF) format("truetype")
   }
 
+a {
+    text-decoration: none; /* 하이퍼링크의 밑줄 제거 */
+}
 
 .LatexTitle{
     font-family: CMR;
