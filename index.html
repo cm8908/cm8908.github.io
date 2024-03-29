@@ -5,7 +5,7 @@ author: Minseop Jung
 date: March 2024
 abstract: In this digital compendium, we embark on academic voyage through the vast sea of Computer Science, navigating through the intricate waves of Deep Learning and Machine Learning. Through critical discourse and empirical analysis, the blog endeavors to demystify the complex knowledge of artificial intelligence across a wide variety of applications. Embarking on this scholarly quest, we warmly invite our readers to become active participants in this grand journey of intellectual expedition. Let this space be a testament to the collaborative spirit of discovery, where every question posed and every answer sought enriches our collective understanding. Please be aware that some entries may contain less abundant contents due to they were taken as 'quick notes'. Additionally, interspersed among the technical discourse, you may encounter posts detailing the quotidian musings of the author, away from the central themes of technology and science.
 ---
-<p class="Section">1 &ensp; Papers</p>
+<p class="Section">1.&ensp;Papers</p>
 
 <p class="BodyText">
     1. <a href="papers/cnn_transformer.html">A Lightweight CNN-Transformer Model for Learning Traveling Salesman Problems</a>
@@ -15,7 +15,38 @@ abstract: In this digital compendium, we embark on academic voyage through the v
     3. <a href="papers/cadgen-kor.html">트랜스포머 오토인코더와 Diffusion 모델을 사용한 3D CAD 모델 생성 방법/Generating 3D CAD Models using a Transformer Autoencoders and a Diffusion Model</a>
 </p>
 
-<p class="Section">2. &ensp; Notes</p>
+<p class="Section">2.&ensp;<a href="notes/notes-index.html">Notes</a></p>
+<p class="BodyText" id="notes"></p>
+    <script> 
+        async function loadAndDisplayPosts(json_filename, id, section_num) {
+            try {
+                // JSON 파일 로드
+                const response = await fetch(json_filename);
+                const data = await response.json();
+        
+                // 날짜 기준으로 오름차순 정렬
+                data.htmls.sort((a, b) => a.time - b.date);
+        
+                // posts-container div에 게시글 링크 추가
+                const container = document.getElementById(id);
+                data.htmls.forEach((post, index) => {
+                    const anchor = document.createElement('a');
+                    const textNode = document.createTextNode(`${section_num}.${index+1}. `);
+                    anchor.href = post.href;
+                    anchor.textContent = `${section_num}.${index+1}. ${post.title}`;
+                    anchor.style.display = 'block'; 
+                    container.appendChild(textNode)
+                    container.appendChild(anchor)
+    
+                });
+                console.log('Success')
+            } catch (error) {
+                console.error('게시글을 로드하는 데 실패했습니다:', error);
+            }
+        }
+        loadAndDisplayPosts('management/notes.json', 'notes', 2)
+    </script>
+</p>
 
 <p class="Section">3. &ensp; Presentations</p>
 <p class="Section">4. &ensp; Posts</p>
