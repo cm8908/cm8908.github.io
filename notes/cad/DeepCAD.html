@@ -1,0 +1,195 @@
+---
+layout: default
+title: "DeepCAD: A Deep Generative Network for Computer-Aided Design Models"
+author: Rundi Wu et al.
+date: August 2021
+abstract: Paper Summary by Minseop Jung
+---
+<p class="Section">Introduction</p>
+<p class="BodyText">
+  	- 기존의 3D 생성 모델은 point cloud, polygon mesh, levelset field와 같은 이산화된 모양들을 다룸<br>
+	- 본 논문은 “Drawing process”를 생성하기 위해 명령어 시퀀스 데이터를 사용한다.<br>
+	- 명령어 시퀀스는 태생적으로 Irregular(각 명령어의 파라미터가 이산적인 것도, 연속적인 것도 있음)하기 때문에 기존의 모델을 바로 적용하기 쉽지 않음<br>
+	- 본 논문에서는 Transformer 기반의 Autoencoder 생성 모델을 제안하였음<br>
+	- 자주 쓰이는 CAD 명령어들을 하나의 체계로 분류하고 인코딩하여 irregularity를 다룸<br>
+	- 저자들은 또한 대용량 데이터셋을 생성하여 공개했으며, 제안된 모델은 다양하고 그럴듯한 CAD 디자인을 생성하였음<br>
+</p>
+
+<!-- ----------------------------------------------------------------- -->
+<p class="Section">Method</p>
+<p class="SubSection">CAD Representation for Neural Networks</p>
+<p class="BodyText">
+	DeepCAD는 3D CAD 생성 모델로, Transformer-based autoencoder에 입력하기 적합한 special-tailored CAD representation을 사용한다.
+</p>
+<p class="BodyText">
+	CAD 모델은 두 가지 레벨의 representation, 즉 *command sequence*와 *boundary representation (B-rep)*을 사용한다. B-rep은 vertices, parametric edges, faces와 같은 위상 정보로서, command sequence로부터 자동 생성될 수 있다. 반면 그 역은 성립하지 않는데, 동일한 B-rep이 여러 command sequence로부터 나왔을 수 있기 때문이다. 또한 command sequence는 human-interpretable하다는 장점이 있다.
+</p>
+<p class="BodyText">따라서 본 논문에서는 command sequence 생성을 목적으로 한다.</p>
+
+<p class="SubSection">Specification of CAD Commands</p>
+<p class="BodyText">
+	<b>Sketch</b>: 2D 혹은 3D 공간 상에서 closed curve를 나타낸다.<br>
+	- sketch profile \(S=[Q_1,...,Q_N]\) : 하나 이상의 loop<br>
+	- loop \(Q_i=[\langle SOL\rangle,C_1,...,C_{n_i}]\) : closed curve (=line, arc, circle), 여러 command sequence로 구성됨<br>
+	- 각각의 command sequence는 curve type \(t_i\)와 파라미터 \(p_i\)로 구성됨 \(C_j=(t_j, p_j)\)<br>
+	&emsp;-\(t_j\in\{\langle SOL\rangle,L,A,R\}\), &lt;SOL&gt;은 start indicator<br>
+	&emsp;-\(p_j\)는 좌표, 각도 등을 나타냄 (See Table 1)<br>
+</p>
+<p class="BodyText">
+	<b>Extrusion</b>: extrusion command는 두 가지 목적을 지닌다.<br>
+	1) Sketch profile을 2D → 3D로 extrude (extrude type \(u\in\){one-sided, symmetric, two-sided*})<br>
+	2) 새로 만들어진 extrusion을 기존 shape과 어떻게 병합할 것인지 (boolean type \(b\in\){new, joining, cutting, intersecting*})<br>
+
+	- Extruded profile: extrusion command 직전에 사용된 curve commands 리스트<br>
+	- Extrusion command: 회전행렬로 정의되는 3D orientation, scaling factor 등 파라미터로 구성. 이전에 curve commands들로 생성된 profile을 extrude하는 역할<br>
+</p>
+<p class="BodyText">
+	CAD model \(M=[C_1,...,C_{N_c}]\)
+</p>
+
+<p class="Section">Network-friendly Representation</p>
+<p class="BodyText">
+	CAD model M은 자연어 시퀀스와 같다. (vocabulary of CAD commands \(C_i\), 주어는 sketch profile, 술어는 extrusion)
+</p>
+<p class="BodyText">
+	그러나, 자연어와 달리 (1) 각 명령어들은 파라미터로 구성되어 있다. (2) 일부 명령어에서는 연속 파라미터와 이산 파라미터가 공존한다. (3) 또한 파라미터 값들이 서로 다른 range에 있다. 이러한 특성들은 명령어 시퀀스를 NN에 바로 입력하기 어렵게 만든다.
+</p>
+<p class="BodyText">
+	💡Note: 연속 파라미터의 예시 — 원의 반지름은 1.0이 될수도, 1.5가 될수도, 1.8이 될 수도 있다. (범위의 연속성). 따라서 이에 대한 이산화가 필요하다.<br>
+	- 먼저, 각 명령어의 파라미터를 16차원 벡터로 고정했다. (16=Table1에 등장하는 모든 파라미터 종류). 사용되지 않는 파라미터는 -1로 고정됨<br>
+	- 모든 CAD model M에서 명령어의 총 개수 \(N_c\)를 고정했다. 짧은 시퀀스는 <EOS> 토큰을 뒤에 패딩하였다. \(N_c=60\)으로, 본 논문에서 제시한 데이터셋에서의 최대 명령어 시퀀스 길이이다.<br>
+	- 이산값과 연속값을 통합하기 위해 연속값을 quantizing하였다. 
+	또한 모든 CAD 모델은 \(2\times 2\times 2\) 사이즈 안으로 정규화하였다.<br>
+	- scaling factor \(s\)를 통해 원본 사이즈로의 복구를 가능케하였고, 모든 연속 파라미터들은 256 level의 8비트 정수로 만들었다. 이로서, 연속값은 모두 이산화되었다.<br>
+	연속 파라미터의 이산화는 단순히 NN practice로써뿐 아니라 생성 퀄리티를 높이는데도 중요한데, 수평선이나 수직선과 같은 기하학적 관계를 나타낼 때 연속 파라미터에 대한 regression을 진행하면 오차가 발생하기 때문에, classification을 통해 그 관계를 명확히 나타내야 한다.
+</p>
+
+<p class="Section">Autoencoder for CAD Models</p>
+<p class="BodyText">
+	기본적으로 트랜스포머 기반, 학습 후에는 decoder 부분을 생성 모델로 사용함<br>
+	1. \(M=[C_1,\cdots,C_{N_c}]\)를 입력으로 받음<br>
+	2. 각 명령어 \(C_i\)는 임베딩 공간 \(d_E=256\)으로 투영된 후 인코더에 입력됨<br>
+	3. 인코더는 latent vector \(z\in\mathbb{R}^{256}\) 출력하여 디코더에 입력<br>
+	4. 디코더는 CAD 명령어 시퀀스 \(\hat{M}\) 생성<br>
+</p>
+<p class="SubSection">Embedding</p>
+<p class="BodyText">
+	명령어 \(C_i=(t_i,p_i)\)로 구성되어 있기 때문에 다음과 같이 세 종류의 임베딩의 합으로 해당 명령어에 대한 임베딩을 계산함.<br>
+	&emsp;&emsp;&emsp;&emsp;&emsp;\(e(C_i)=e^{cmd}_i+e^{param}_i+e^{pos}_i\in\mathbb{R}^{d_E}\)<br><br>
+	\(e_i^{cmd}=W_{cmd}\delta^c_i\), where \(\delta^c_i\)는 6개의  command type 중 하나를 나타내는 one-hot vector<br>
+	\(e^{param}_i=W^a_{param}\text{flat}(W^b_{param}\delta^p_i)\)<br>
+	&emsp;- \(\delta^p_i\in\mathbb{R}^{257\times 16}\)<br>
+	&emsp;&emsp;- \(\delta^p_{i,j}\in\mathbb{R}^{257}\): i번째 명령어의 j번째 파라미터. 8비트 정수이므로 \(2^8=256\), 나머지 1은 해당 파라미터가 사용되었는지/안되었는지를 나타내는 indicator<br>
+	&emsp;- \(W^a_{param}\in\mathbb{R}^{d_E\times 16d_E},W^b_{param}\in\mathbb{R}^{d_E\times 257}\)<br>
+	- \(e^{pos}_i=W_{pos}\delta_i\) where \(\delta_i\)는 i번째 인덱스만 1인 one-hot vector. 일종의 position embedding<br>
+</p>
+
+<p class="SubSection">Encoder</p>
+<p class="BodyText">
+	- 4 layers of Transformer blocks<br>
+	- `nb_heads=8, d_ff=512`<br>
+	- \([e_1,\cdots,e_{N_c}]\)를 입력받아 같은 (\(d_E=256\)) 차원의 \([e_1,\cdots,e_{N_c}]\in\mathbb{R}^{N_C\times d_E}\) 출력<br>
+	- 이후 Average pooling을 통해 latent vector \(z\in\mathbb{R}^{d_E}\) 출력<br>
+</p>
+
+<p class="SubSection">Decoder</p>
+<p class="BodyText">
+	- 인코더와 같은 hparam 세팅<br>
+	- learned constant embedding을 입력받아 \(z\)에 attend<br>
+	- Non-autoregressive하게 출력<br>
+</p>
+
+
+<p class="Section">Creation of CAD Dataset</p>
+<p class="BodyText">
+	기존 데이터셋: ABC는 1M개의 CAD 디자인을 갖고 있지만 B-rep 포맷임. Fusion 360 Gallery는 CAD command sequence를 제공하지만 8000개밖에 없음
+</p>
+<p class="BodyText">
+	Onshape repository와 API, FeatureScript 언어를 이용해 sketch와 extrusion operation과 파라미터를 파싱하였음. FeatureScript 언어 사용
+</p>
+<p class="BodyText">
+	CAD 명령어 시퀀스로 구성된 178,238개의 CAD 디자인이 포함된 데이터셋 만들었음.
+</p>
+<p class="BodyText">
+	90%/5%/5%로 Train/Val/Test split하였음
+</p>
+	
+<p class="Section">Training and Runtime Generation</p>
+<p class="SubSection">Training</p>
+<p class="BodyText">
+	다음과 같이 출력  \(\hat{M}\)과 GT \(M\) 사이의 loss를 Cross entropy를 활용해 다음과 같이 정의함.<br>
+	&emsp;&emsp;&emsp;&emsp;&emsp;\(\mathcal{L}=\sum^{N_c}_{i=1}l(\hat{t}_i,t_i)+\beta\sum^{N_c}_{i=1}\sum^{N_p}_{j=1}l(\hat{p}_{i,j},p_{i,j})\)<br>
+	term balance parameter \(\beta\)=2. 일부 명령어는 빈 명령어 (e.g. EOS)이고, 일부 명령어의 파라미터들은 사용되지 않음 (e.g. -1) <span style=color:red>Loss계산 시 이러한 경우들은 단순히 무시하였음</span><br>
+</p>
+<p class="BodyText">Adam optimizer with lr=0.001, linear warm-up period of 2000 initial steps</p>
+<p class="BodyText">dropout rate = 0.1, gradient clipping 1.0, 100 epochs trained, batch size 512</p>
+
+<p class="SubSection">CAD Generation</p>
+<p class="BodyText">
+	학습된 모델은 CAD 모델을 256차원의 latent vector \(z\)로 표현할 수 있음
+</p>
+<p class="BodyText">latent-GAN과 Wasserstein-GAN 학습법을 사용해 새로운 CAD 모델을 생성</p>
+
+<p class="BodyText">다변수 Gaussian 분포로부터 랜덤 벡터 하나를 샘플링한 뒤, GAN generator에 입력함. GAN generator의 출력은 latent vector \(z\)로서 Transformer decoder에 입력됨</p>
+
+<p class="Section">Experiments</p>
+<p class="BodyText">
+	(1) Autoencoding of CAD models, (2) latent-space shape generation의 두 관점에서 모델 평가 진행함
+</p>
+<p class="SubSection">Autoencoding of CAD Models</p>
+<p class="SubSubSection">Metrics</p>
+<p class="BodyText">
+	Command Accuracy: 명령어의 type을 비교<br>
+	&emsp;&emsp;&emsp;&emsp;&emsp;\(ACC_{cmd}=\frac{1}{N_c}\sum^{N_c}_{i=1}\mathbb{I}[t_i=\hat{t}_i]\)<br>
+	Parameter Accuracy: command type이 정확히 분류된 경우에 파라미터의 정확도 평가. 파라미터 내부의 quantized 값들에 대해 각각 비교, GT와 prediction의 파라미터 값의 차이가 threshold \(\eta\)보다 작은 경우 1로 평가. 이 때 K는 command type이 옳게 분류된 파라미터의 개수<br>
+	&emsp;&emsp;&emsp;&emsp;&emsp;\(ACC_{param}=\frac{1}{K}\sum^{N_c}_{i=1}\sum^{|\hat{p}_i|}_{j=1}\mathbb{I}[|p_{i,j}-\hat{p}_{i,j}|<\eta]\mathbb{I}[t_i=\hat{t}_i]\)<br>
+	생성된 3D geometry의 퀄리티 측정을 위해, GT와 prediction으로부터 각각 2000개의 포인트를 uniform sampling한 뒤 Chamfer distance를 측정함. Invalid case가 나오는 경우에 대해서, Invalid ratio(=CAD 모델로부터 point cloud를 측정할 수 없는 percentage)
+</p>
+<p class="SubSubSection">Comparison of methods</p>
+<p class="BodyText">
+	비교 대상이 되는 baseline 모델이 없기 때문에, Ours의 다양한 변종들과 비교하였음<br>
+	Detailed in Section D.
+</p>
+
+<p class="SubSubSection">Cross-dataset generalization</p>
+<p class="BodyText">
+	Our proposed 데이터셋에 학습시킨 뒤 Smaller dataset인 Fusion 360 Gallery에서 평가함<br>
+
+	Ours: Onshape repository에서 구축한 반면 Fusion 360 Gallery는 Autodesk Fusion 360 기반임. 그럼에도 모델이 잘 일반화 된 것을 확인<br>
+</p>
+
+<p class="SubSection">Shape Generation</p>
+<p class="BodyText">
+	point cloud 기반 생성모델인 l-GAN과 비교하였음. Point-cloud 기반 metrics으로 평가했음에도 불구하고 뛰어난 성능을 보여주고 있음.
+</p>
+<p class="SubSubSection">Metrics</p>
+<p class="BodyText">
+	GT \(G\)와 생성된 shape \(S\)를 비교했을 때,<br>
+
+	- Coverage(COV): G가 얼마나 S를 잘 근사하는지에 대한 percentage<br>
+	- Minimum Matching Distance(MMD): S와 G간의 point cloud 사이의 minimum matching distance를 통해 G의 fidelity를 측정<br>
+	- Jensen-Shannon Divergence (JSD): S와 G간의 유사도 측정하는 통계적 거리 메트릭<br>
+	
+	CAD 모델은 parametric representation이므로 point cloud기반 l-GAN보다 더 smooth한 결과 보여줌<br>
+</p>
+
+<p class="SubSubSection">Future applications</p>
+<p class="BodyText">
+	- Point cloud 데이터에 대한 활용: PointNet++ 인코더에 Ours decoder를 합쳐 point cloud로부터 latent vector 생성하고 CAD reconstruction이 가능함<br>
+- 생성된 CAD 모델을 CAD tool에 통합하여 사용자가 수정할 수 있게 함. 사용자는 point cloud나 mesh를 수정하는 것보다 CAD 모델을 수정하는 것이 훨씬 수월함
+</p>
+
+<p class="Section">Discussion and Conclusion</p>
+<p class="BodyText">
+	한계점<br>
+
+- line, arc, circle 외에도 다양한 curve command가 통합될 수 있지만, 특정 shape 경계에 대한 *fillet*과 같은 operation은 모델의 명령어 뿐만 아니라 B-rep 레퍼런스가 필요함.<br>
+- Invalid topology를 생성하는 CAD 시퀀스가 있음. 시퀀스 길이가 길어질 수록 failure가 자주 남.<br>
+</p>
+
+
+<p class="IndexSection">Index</p>
+<p class="IndexBtn" fontsize>
+    <a href="/notes/notes-index.html">Back to Notes-Index</a> <br>
+    <a href="/index.html">Back to Home</a>
+</p>   

@@ -1,6 +1,12 @@
 {
     "htmls": [
         {
+            "title": "A Deep Generative Network for Computer-Aided Design Models",
+            "time": 1711720255.14912,
+            "href": "/notes/cad/DeepCAD.html",
+            "category": "cad"
+        },
+        {
             "title": "Knowledge Bank",
             "time": 1711677205.731422,
             "href": "/notes/unclassified/knowledge-bank.html",
