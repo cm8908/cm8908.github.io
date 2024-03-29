@@ -16,7 +16,9 @@ abstract: In this digital compendium, we embark on academic voyage through the v
 </p>
 
 <p class="Section">2.&ensp;<a href="notes/notes-index.html">Notes</a></p>
-<p class="BodyText" id="notes"></p>
+<p class="BodyText" id="notes">
+    2.0. <a href='notes/notes-index.html'>Notes Index</a><br>
+</p>
     <script> 
         async function loadAndDisplayPosts(json_filename, id, section_num) {
             try {
@@ -33,8 +35,8 @@ abstract: In this digital compendium, we embark on academic voyage through the v
                     const anchor = document.createElement('a');
                     const textNode = document.createTextNode(`${section_num}.${index+1}. `);
                     anchor.href = post.href;
-                    anchor.textContent = `${section_num}.${index+1}. ${post.title}`;
-                    anchor.style.display = 'block'; 
+                    anchor.textContent = `${post.title}`;
+                    anchor.style.display = 'inline'; 
                     container.appendChild(textNode)
                     container.appendChild(anchor)
     

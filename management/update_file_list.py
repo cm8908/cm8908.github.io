@@ -14,15 +14,9 @@ def run(dirname):
         ctime = os.path.getctime(html)
         title = get_title(html)
         json_dic['htmls'].append({
-<<<<<<< HEAD
             'title': title.strip('"'),
             'time': ctime,
             'href': href.replace('\\', '/')
-=======
-            'title': title,
-            'time': ctime,
-            'href': href
->>>>>>> 2c65f3f7413451b12a2171db20494ce985bac67a
         })
     with open(f'management/{dirname}.json', 'w', encoding='utf-8') as f:
         json.dump(json_dic, f, indent=4, ensure_ascii=False)
