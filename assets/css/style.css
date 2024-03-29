@@ -11,6 +11,7 @@
 
 a {
     text-decoration: none; /* 하이퍼링크의 밑줄 제거 */
+    color:black;
 }
 
 a:hover{

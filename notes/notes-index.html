@@ -1,23 +1,37 @@
 ---
 layout: default
-title: "Notes"
+title: "Notes (Index Page)"
 author: Minseop Jung
 date: March 2024
 abstract: In this section of the blog, you will find notes, memos, reviews and etc. on a variety of subjects, which mainly include research articles regarding artificial intelligence, machine learning or deep learning and their applications. 
 ---
+<script src="../management/read_file_list.js"></script>
+
 <p class="Section">1&ensp;Routing Problems</p>
-
-<p class="BodyText">
-
-</p>
+<p class="BodyText" id="notes-routing"></p>
+<script>
+    loadAndDisplayPostsWithCategory('../management/notes.json', 'notes-routing', 4, 'routing')
+</script>
 
 <p class="Section">2.&ensp;Computer Aided Design</p>
+<p class="BodyText" id="notes-cad"></p>
+<script>
+    loadAndDisplayPostsWithCategory('../management/notes.json', 'notes-cad', 4, 'cad')
+</script>
 
 <p class="Section">3.&ensp;Diffusion Models</p>
+<p class="BodyText" id="notes-diffusion"></p>
+<script>
+    loadAndDisplayPostsWithCategory('../management/notes.json', 'notes-diffusion', 4, 'diffusion')
+</script>
+
 <p class="Section">4.&ensp;Unclassified</p>
+    <p class="BodyText" id="notes-unclassified"></p>
+        <script>
+            loadAndDisplayPostsWithCategory('../management/notes.json', 'notes-unclassified', 4, 'unclassified')
+        </script>
 
-
-    <p class="Section">Index</p>
-    <p class="BodyText">
-        <a href="../index.html">Back to Home</a>
-    </p>   
+<p class="IndexSection">Index</p>
+<p class="IndexBtn">
+    <a href="../index.html">Back to Home</a>
+</p>   

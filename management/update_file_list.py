@@ -8,16 +8,20 @@ def get_title(filename):
     
 def run(dirname):
     json_dic = {"htmls": []}
-    html_list = [os.path.join(dirname, f) for f in os.listdir(dirname)\
-        if f.endswith('.html') and not f.endswith('-index.html')]
+    html_list = glob(os.path.join(dirname, '*/*.html'))
+    # html_list = [os.path.join(dirname, f) for f in os.listdir(dirname)\
+    #     if f.endswith('.html') and not f.endswith('-index.html')]
     for html in html_list:
+        html = html.replace('\\', '/')
+        category = html.split('/')[1]
         href = os.path.join('/', html)
         ctime = os.path.getctime(html)
         title = get_title(html)
         json_dic['htmls'].append({
             'title': title.strip('"'),
             'time': ctime,
-            'href': href.replace('\\', '/')
+            'href': href,
+            'category': category
         })
     with open(f'management/{dirname}.json', 'w', encoding='utf-8') as f:
         json.dump(json_dic, f, indent=4, ensure_ascii=False)
