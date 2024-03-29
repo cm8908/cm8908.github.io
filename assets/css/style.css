@@ -1,11 +1,12 @@
 @font-face {
     font-family: CMR;
     /* src: url(../fonts/cmuserif_roman_macroman/cmunrm-webfont.woff); */
-    src: url(../fonts/cmuserif_roman_macroman/HY신명조.TTF);
+    src: url(../fonts/chosun_mj/ChosunSm.TTF) format("truetype");
   }
   @font-face {
     font-family: CMB;
-    src: url(../fonts/cmuserif_bold_macroman/cmunbx-webfont.woff);
+    /* src: url(../fonts/cmuserif_bold_macroman/cmunbx-webfont.woff); */
+    src: url(../fonts/chosun_mj/ChosunKm.TTF) format("truetype")
   }
 
 
@@ -76,12 +77,28 @@
     margin-bottom: 20px;
 }
 
+.SubSubSection{
+    font-family: CMB;
+    font-size: 25px;
+    text-align: Left;
+    margin-top: 13px;
+    margin-bottom: 20px;
+}
+
+.IndexSection{
+    font-family: CMB;
+    font-size: 25px;
+    text-align: Left;
+    margin-top: 45px;
+    margin-bottom: 13px;
+}
+
 .BodyText{
     font-family: CMR;
     font-size: 23px;
     text-align: Left;
     margin-top: 13px;
-    margin-bottom: 45px;
+    margin-bottom: 13px;
     line-height: 125%;
     column-count: 1;
 }
@@ -109,6 +126,16 @@
 .Justified{
     text-align: justify;
     text-justify: inter-word;
+}
+
+.IndexBtn{
+    font-family: CMR;
+    font-size: 20px;
+    text-align: Left;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    line-height: 125%;
+    column-count: 1;
 }
 
 .footerSize{
