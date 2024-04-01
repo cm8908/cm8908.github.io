@@ -22,6 +22,9 @@ abstract: 각종 CS/DS/Algo/ML/DL/AI/Data Science 지식들을 간결 명료하�
 
 <p class="Section">3. &ensp;Data Science / Mining / Analysis</p>
 <p class="BodyText">
+    <b>독립변수</b>란 무엇인가? 다른 변수에 영향을 주는 "원인"이 되는 변수로, \(y=ax+b\)에서 \(x\)에 해당한다. <b>종속변수</b>란 무엇인가? 다른 변수에 영향을 받는 "결과"가 되는 변수로, \(y=ax+b\)에서 \(y\)에 해당한다.
+</p>
+<p class="BodyText">
     <b>가설 검성</b>이란 무엇인가? 통계적 기법으로 가설의 타당성을 검증하는 방법이다. 어떤 결과가 통계적으로 유의미한 결과인지, 아니면 단순 샘플링 에러에 불과한지를 판단한다. 이는 <b>귀무 가설</b>과 <b>대립 가설</b>을 세우고, 표본 데이터를 통해 귀무 가설을 채택할지 기각할 지를 통해 결정한다. 이 때 귀무 가설은 "A와 B가 차이가 없다"는 가설이고, 대립 가설은 "차이가 있다"는 가설이다. 귀무 가설을 거짓으로 판단하고 기각하면, A와 B는 통계적으로 유의미한 차이가 있다고 말할 수 있다. 이 때 t-test나 ANOVA-test와 같은 방법을 사용하여 표본 데이터를 통해 기각과 채택을 판단한다.
 </p>
 <p class="BodyText">
@@ -33,7 +36,61 @@ abstract: 각종 CS/DS/Algo/ML/DL/AI/Data Science 지식들을 간결 명료하�
 <p class="BodyText">
     왜 귀무가설은 <b>부정</b>의 형태로 설정되는가? "차이가 있다"보다 "차이가 없다"가 검증하기 쉽기 때문이다. 차이가 있다는 말은 너무 모호하고 광범위하다. 또한, 과학은 신중하기 때문에 새로운 가설에 대해서는 항상 회의적이다.
 </p>
-
+<p class="BodyText">
+    <b>데이터 마이닝의 5단계 프로세스.</b><br>
+    <b>1단계, 문제 정의 Problem Definition.</b> 과학적으로, 명료하게 정의한다. 예를 들어, "중환자실 산소호흡기에서 이상이 발생하는 문제를 해결하고 싶다." \(\rightarrow\) "중환자실 산소 호흡기에서 수집된 breath data 중에서 normal과 abnormal 데이터를 분류하고자 한다."<br>
+    <b>2단계, 데이터 수집 및 전처리 Data Collection & Preprocessing.</b> 이 때 다양한 데이터 저장소, 저장 방법, 컴퓨팅 환경이 사용될 수 있다. 전처리는 cleaning, scaling, filling, 이산화 등이 있을 수 있다.<br>
+    <b>3단계, 데이터 표현 Data Representation.</b> 필요한 feature들만 사용한다. 경우에 따라서는 raw data가 사용되기도 한다.<br>
+    <b>4단계, DM Function/Techniques.</b> 머신러닝, 통계분석, 시계열분석 등... 질적, 양적 분석 모두 이루어지며, 둘은 상호보완적이다.<br>
+    <b>5단계, Evaluation & Interpretation.</b> 위 분석 결과들로부터 유용한 결론을 도출.
+</p>
+<p class="BodyText">
+    <b>Curse of Dimensionality 차원의 저주</b>란 무엇인가? 다루고자 하는 데이터의 차원이 커짐에 따라 발생하는 문제로, 차원이 커짐에 따라 데이터 공간의 밀도가 기하급수적으로 낮아지고, 이에 따라 기계학습이나 데이터 분석(e.g. clustering)에 필요한 데이터가 희소해지는 현상을 말한다. 또한, 차원이 높아질수록 처리하기 위해 필요한 연산 복잡도가 기하급수적으로 증가하게 된다.
+</p>
+<p class="BodyText">
+    <b>Dimensionality Reduction 차원 축소</b> 방법은 무엇이 있는가? PCA, Attribute Subset Selection 등이 있다.
+</p>
+<p class="BodyText">
+    <b>Principal Component Analysis (PCA)</b>란 무엇인가? 데이터의 분산을 최대한 보존하면서 데이터의 차원을 축소하는 방법으로, 데이터의 차원이 n이라면, n보다 작은 개수의 직교 벡터(주성분 벡터)를 찾아 이들로 데이터를 표현하는 방법이다.
+</p>
+<p class="BodyText">
+    <b>Attribute Subset Selection</b>이란 무엇인가? 중복되거나(redundant) 무관한(irrelevant) 특징을 제거하는 방법이다. 이 때, 각 특징에 대해 통계 검정을 적용하여 각 특징들을 단계적으로 제거하거나 추가할 수 있다.
+</p>
+<p class="BodyText">
+    <b>Numerosity Reduction</b>이란 무엇인가? 데이터를 "양"을 줄이는 방법이다. 여기에는 <i>parametric</i> 방법과 <i>non-parametric</i> 방법이 있다. Parametric 방법은 데이터를 잘 표현하는 모델(e.g. regression model)을 찾아 모델의 파라미터로 데이터를 표현하는 방법이다. Non-parametric 방법은 데이터의 대표값을 찾아 데이터를 표현하는 방법이다. 예를 들어, clustering, histogram, sampling 등이 있다.
+</p>
+<p class="BodyText">
+    <b>Data Compression</b>은 무엇인가? 데이터를 압축하는 방법으로, 데이터의 종류에 따라 다양한 알고리즘이 존재한다. Lossless 방법은 정보의 손실 없이 압축하는 방법이며 (e.g. string), lossy 방법은 정보의 손실을 어느정도 감수하는 압축 방법이다 (e.g. audio/video).
+</p>
+<p class="BodyText">
+    통계 분석에서 <b>parametric</b> 방법과 <b>non-parametric</b> 방법은 무엇인가? <b>Parametric</b> 방법은 데이터를 잘 표현하는 몇 개의 매개 변수(파라미터)로 데이터를 표현하는 모델을 구성한다. 이 때, 데이터가 특정 분포를 따른다는 가정이 필요하다. <b>Non-parametric</b> 방법은 파라미터를 따로 설정하지 않고 데이터 자체만으로 모델을 구성한다. 이 때, 분포에 대한 가정은 필요치 않으나 많은 데이터가 필요하다.
+</p>
+<p class="BodyText">
+    데이터 시각화에서 <b>어떤 색깔을 선택하는 것이 좋을까?</b> 첫쨰, <b>Qualitative</b> color는 서로 잘 구분되는 "범주형 데이터"를 나타낼 때 유용하다. 둘째, <b>Sequential</b> color는 증가하거나 감소하는 순서가 있는 데이터를 나타낼 때 유용하다. 셋째, <b>Diverging</b> color는 중간값에서 양극으로 감소하고 증가하는 데이터를 나타낼 때 유용하다.
+</p>
+<p class="BodyText">
+    <b>상관계수 Correlation coefficient</b>이란 무엇인가? 두 변수 사이의 상관관계를 나타내는 지표이다. 두 변수 사이의 양의 상관관계가 높다면, 두 변수의 단조 관계 비슷하다 (e.g. 하나가 감소할 떄, 나머지 하나도 감소한다). 음의 상관관계가 높다면, 두 변수의 단조 관계가 반대이다 (e.g. 하나 감소하면 나머지 증가). 상관계수가 0에 가깝다면, 두 변수의 단조 관계가 관련이 없다. 상관계수는 Pearson's correlation과 Spearman's correlation이 대표적이다.
+</p>
+<p class="BodyText">
+    <b>Pearson's correlation</b> coefficient는 두 변수의 공분산을 이용해 계산되기 때문에, 데이터가 정규 분포를 따른다는 가정이 필요하다. 반면 <b>Spearman's correlation</b> coefficient는 변수의 rank(순서)에 기반하여 계산하기 때문에, 정규 분포 가정이 필요 없다. 두 지표 모두 \(\left[-1, 1\right]\)의 값을 가진다.
+</p>
+<p class="BodyText">
+    Graph 이론에서, 노드의 <b>Centrality</b> (or Prestige)란 무엇인가? 노드의 중심성 즉, 노드가 전체 그래프에서 다른 노드에 비해 얼마나 더 중요한 지를 나타낸다. Degree centrality, closeness centrality, betweenness centrality, eigenvector centrality가 있다.<br>
+    <b>Degree centrality</b>란 degree(이웃 노드의 개수)가 높은 노드를 중요한 노드로 본다.<br>
+    <b>Closeness centrality</b>란 다른 노드와의 평균 거리가 가장 가까운 (또는 가중치가 가장 높은) 노드를 중요한 노드로 본다.<br>
+    <b>Betweenness centrality</b>란 다른 노드들과 많이 연결해주는 노드를 중요한 노드로 본다.<br>
+    <b>Eigenvector centrality</b>란 중요한 노드와 연결된 노드를 중요한 노드로 본다.<br>
+</p>
+<p class="BodyText">
+    자연어 처리에서 텍스트를 나타내는 방법이 무엇이 있는가?<br>
+    먼저, <b>Bag of Words</b>은 텍스트 문서에 등장하는 각 단어들의 등장 빈도를 벡터로 나타낸 것이다. 그러나 vocabulary의 사이즈가 커질수록 희소 벡터가 만들어지고, 단어의 등장 순서나 문맥을 고려하지 않으며, 빈도에 집중하기 때문에 의미 없는 단어(a, the, is 등)에 높은 가중치를 준다.<br>
+    <b>TF-IDF</b>는 term frequency (문서 내에서 단어의 등장 빈도)와 inverse document frequency (document frequence - 특정 단어가 전체 문서중에서 몇개의 문서에서 등장하는지 - 의 역수)의 곱으로 계산된다. 일반적으로 흔히 등장하는 의미 없는 단어들에 대해 낮은 가중치를 주고, 특정 문서에 자주 등장하는 (진짜 중요한) 단어에 가중치를 높게 준다. 그러나 여전히 문맥은 무시하는 단점이 있다.<br>
+    <b>N-gram</b>은 문서 내의 N개의 연속된 단어들을 시퀀스로 묶어서 표현하는 방법이다. 예를 들어, "I love you"에 대한 Bi-gram은 ("I love", "love you")이다. N-gram은 문맥을 고려할 수 있으나, N이 커질수록 발생하는 차원의 저주를 피할 수 없다.<br>
+    <b>Word Embedding</b>은 주로 학습된 딥러닝 모델을 통해 각각의 단어를 임베딩 벡터로 나타내는 방법이다. 각각의 임베딩 벡터들은 임베딩 공간에서 단어들 간의 의미적 관계를 반영하여 표현된다.
+</p>
+<p class="BodyText">
+    시계열 데이터의 구성 요소는 무엇이 있는가? 첫째, <b>추이 Trend</b>는 시간에 따른 데이터가 증가하거나 감소하는 경향을 나타낸다. 둘째, <b>계절성 Seasonality</b>는 주로 계절이나 기후와 같이 절대적 시간 주기에 따라 반복되는 정보를 담고 있으며 비교적 짧은 순환 주기를 가진다. Naive한 딥러닝 방법으로 예측하지 못한다. 셋째, <b>주기성 Cycle</b>은 불규칙적인 시간 간격에 따라 반복되는 정보를 담고 있으며, 비교적 장기적인 순환 주기를 가진다. 넷째, <b>불규칙성 Irregularity</b>은 외부적인 사건에 의해서 발생하는 예측할 수 없는 무작위적인 성분이다.
+</p>
 
 
 <p class="IndexSection">Index</p>
