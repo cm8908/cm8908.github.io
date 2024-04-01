@@ -12,11 +12,13 @@ async function loadAndDisplayPosts(json_filename, id, section_num) {
         data.htmls.forEach((post, index) => {
             const anchor = document.createElement('a');
             const textNode = document.createTextNode(`${section_num}.${index+1}. `);
+            const breakline = document.createElement('br');
             anchor.href = post.href;
             anchor.textContent = `${post.title}`;
             anchor.style.display = 'inline'; 
-            container.appendChild(textNode)
-            container.appendChild(anchor)
+            container.appendChild(textNode);
+            container.appendChild(anchor);
+            container.appendChild(breakline);
 
         });
         console.log('Success')
