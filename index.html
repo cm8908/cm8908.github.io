@@ -5,21 +5,19 @@ author: Minseop Jung
 date: March 2024
 abstract: In this digital compendium, we embark on academic voyage through the vast sea of Computer Science, navigating through the intricate waves of Deep Learning and Machine Learning. Through critical discourse and empirical analysis, the blog endeavors to demystify the complex knowledge of artificial intelligence across a wide variety of applications. Embarking on this scholarly quest, we warmly invite our readers to become active participants in this grand journey of intellectual expedition. Let this space be a testament to the collaborative spirit of discovery, where every question posed and every answer sought enriches our collective understanding. Please be aware that some entries may contain less abundant contents due to they were taken as 'quick notes'. Additionally, interspersed among the technical discourse, you may encounter posts detailing the quotidian musings of the author, away from the central themes of technology and science.
 ---
+<script src="management/read_file_list.js"> </script>
 <p class="Section">1.&ensp;Papers</p>
-
-<p class="BodyText">
-    1. <a href="papers/cnn_transformer.html">A Lightweight CNN-Transformer Model for Learning Traveling Salesman Problems</a>
-    <br>
-    2. <a href="papers/contrastcad.html">ContrastCAD: Contrastive Learning-based Representation Learning for Computer-Aided design models</a>
-    <br>
-    3. <a href="papers/cadgen-kor.html">트랜스포머 오토인코더와 Diffusion 모델을 사용한 3D CAD 모델 생성 방법/Generating 3D CAD Models using a Transformer Autoencoders and a Diffusion Model</a>
+<p class="BodyText" id="papers">
 </p>
+<script>
+    loadAndDisplayPosts('management/papers.json', 'papers', 1)
+</script>
+
 
 <p class="Section">2.&ensp;Notes</p>
 <p class="BodyText" id="notes">
-    2.0. <a href='notes/notes-index.html'>Notes Index</a><br>
+    <b>2.0. <a href='notes/notes-index.html'>Notes Index</a><br></b>
 </p>
-    <script src="management/read_file_list.js"> </script>
     <script>
         loadAndDisplayPosts('management/notes.json', 'notes', 2)
     </script>

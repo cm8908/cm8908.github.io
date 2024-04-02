@@ -38,15 +38,19 @@ async function loadAndDisplayPostsWithCategory(json_filename, id, section_num, c
 
         // posts-container div에 게시글 링크 추가
         const container = document.getElementById(id);
-        data.htmls.forEach((post, index) => {
+        index = 0;
+        data.htmls.forEach(post => {
             if (post.category == category){
                 const anchor = document.createElement('a');
                 const textNode = document.createTextNode(`${section_num}.${index+1}. `);
+                const breakline = document.createElement('br');
                 anchor.href = post.href;
                 anchor.textContent = `${post.title}`;
                 anchor.style.display = 'inline'; 
-                container.appendChild(textNode)
-                container.appendChild(anchor)
+                container.appendChild(textNode);
+                container.appendChild(anchor);
+                container.appendChild(breakline);
+                index += 1;
             }
         });
         console.log('Success')

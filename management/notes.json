@@ -1,14 +1,26 @@
 {
     "htmls": [
         {
-            "title": "A Deep Generative Network for Computer-Aided Design Models",
+            "title": "DeepCAD: A Deep Generative Network for Computer-Aided Design Models",
             "time": 1711720255.14912,
             "href": "/notes/cad/DeepCAD.html",
             "category": "cad"
         },
         {
+            "title": "SkexGen",
+            "time": 1712038506.4280493,
+            "href": "/notes/cad/SkexGen.html",
+            "category": "cad"
+        },
+        {
+            "title": "DDPM 수식유도",
+            "time": 1712036716.935063,
+            "href": "/notes/diffusion/deriving-ddpm.html",
+            "category": "diffusion"
+        },
+        {
             "title": "Knowledge Bank",
-            "time": 1711677205.731422,
+            "time": 1712035945.4350262,
             "href": "/notes/unclassified/knowledge-bank.html",
             "category": "unclassified"
         }
