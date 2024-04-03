@@ -38,11 +38,11 @@ abstract: 각종 CS/DS/Algo/ML/DL/AI/Data Science 지식들을 간결 명료하�
 </p>
 <p class="BodyText">
     <b>데이터 마이닝의 5단계 프로세스.</b><br>
-    <b>1단계, 문제 정의 Problem Definition.</b> 과학적으로, 명료하게 정의한다. 예를 들어, "중환자실 산소호흡기에서 이상이 발생하는 문제를 해결하고 싶다." \(\rightarrow\) "중환자실 산소 호흡기에서 수집된 breath data 중에서 normal과 abnormal 데이터를 분류하고자 한다."<br>
-    <b>2단계, 데이터 수집 및 전처리 Data Collection & Preprocessing.</b> 이 때 다양한 데이터 저장소, 저장 방법, 컴퓨팅 환경이 사용될 수 있다. 전처리는 cleaning, scaling, filling, 이산화 등이 있을 수 있다.<br>
-    <b>3단계, 데이터 표현 Data Representation.</b> 필요한 feature들만 사용한다. 경우에 따라서는 raw data가 사용되기도 한다.<br>
+    <b>1단계, 문제 정의 Problem Definition.</b> 해결하고자 하는 문제를 (구체적, 과학적으로) 정의한다. 예를 들어, "중환자실 산소호흡기에서 이상이 발생하는 문제를 해결하고 싶다." \(\rightarrow\) "중환자실 산소 호흡기에서 수집된 breath data 중에서 normal과 abnormal 데이터를 분류하고자 한다."<br>
+    <b>2단계, 데이터 수집 및 전처리 Data Collection & Preprocessing.</b> 문제 해결을 위해 필요한 데이터를 수집하고, 데이터의 품질을 보장하기 위해 결측치 처리, 노이즈 제거, 불완전한 데이터 제거 등 데이터를 전처리하는 과정이다.<br>
+    <b>3단계, 데이터 표현 Data Representation.</b> 수집된 데이터를 데이터 마이닝 알고리즘 적용에 적합한 형태로 변환하는 과정이다. 이 때, 정규화, 이산화, 특징 공학 등이 사용될 수 있다. 경우에 따라서는 raw data가 사용되기도 한다.<br>
     <b>4단계, DM Function/Techniques.</b> 머신러닝, 통계분석, 시계열분석 등... 질적, 양적 분석 모두 이루어지며, 둘은 상호보완적이다.<br>
-    <b>5단계, Evaluation & Interpretation.</b> 위 분석 결과들로부터 유용한 결론을 도출.
+    <b>5단계, Evaluation & Interpretation.</b> 분석 결과의 신뢰성과 유용성을 평가하고, 분석 결과로부터 결론 (지식)을 도출한다.
 </p>
 <p class="BodyText">
     <b>Curse of Dimensionality 차원의 저주</b>란 무엇인가? 다루고자 하는 데이터의 차원이 커짐에 따라 발생하는 문제로, 차원이 커짐에 따라 데이터 공간의 밀도가 기하급수적으로 낮아지고, 이에 따라 기계학습이나 데이터 분석(e.g. clustering)에 필요한 데이터가 희소해지는 현상을 말한다. 또한, 차원이 높아질수록 처리하기 위해 필요한 연산 복잡도가 기하급수적으로 증가하게 된다.
