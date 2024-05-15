@@ -13,6 +13,21 @@ abstract: 각종 CS/DS/Algo/ML/DL/AI/Data Science 지식들을 간결 명료하�
 <!-- ----------------------------------------------------------------- -->
 <p class="Section">2. &ensp;Artificial Intelligence</p>
 <p class="SubSection">Deep Learning</p>
+<p class="BodyText">
+    <b>CNN (Convolutional Neural Network)</b>란 무엇인가? 이미지 데이터를 학습하는 데 주로 사용되는 특징 추출자(Feature extractor)다. Convolution 연산을 주요 구성 요소로 가지며, pooling이나 배치 정규화 레이어 등을 포함하기도 한다. 2차원의 경우, \(k \times k\)의 convolution kernel(혹은 filter)를 데이터에 대해 sliding하며, kernel의 가중치들과 데이터의 값들 (이미지 데이터의 경우 pixel value)과 element-wise product를 수행한 뒤, aggregate한다. 이러한 계산 과정을 반복하면 데이터의 지역적 특징들이 aggreagte된 feature map을 얻을 수 있다.<br>
+    <b>Convolution 연산의 출력 차원은 어떻게 계산되는가?</b> \(\frac{W - k + 2*P}{S} + 1\) 이 때, W는 데이터의 width, k는 kernel size, P는 padding size, S는 stride이다.<br>
+    <b>왜 CNN은 이미지 데이터에 효과적인가?</b> 이미지 데이터는 지역적 정보가 중요한 데이터이다. 예를 들어, 사람 얼굴 이미지라고 하면 눈, 코, 입, 귀 등등의 semantic한 정보는 인접한 픽셀들이 담고 있다. 따라서 이러한 지역적 정보를 convolution을 통해 추출하는 CNN이 이미지 데이터의 특징 추출에 효과적이다.<br>
+    <b>Fully Convolutional Neural Network</b>는 convolution & deconvolution 연산으로만 구성된 CNN이다. 기존 CNN과 달리 fully-connected layer가 들어가지 않기 때문에, 입력 사이즈를 보존해야 하는 segmentation 태스크 등에서 유리하다.<br>
+    <b>CapsuleNet</b>은 CNN의 max pooling 연산이 가지는 translation invariance를 지적하며 제안되었다. Max pooling 과정에서 위치 정보가 손실될 수 있고, convolution 연산은 태생적으로 이미지 내 객체의 위치에 무관하게 학습되기 때문에 전역적 정보가 충분히 보존되지 않을 수 있다. Convolution의 수용 영역 한계는 <b>ViT</b>의 attention mechanism으로도 극복할 수 있다.
+</p>
+<p class="BodyText">
+    <b>RNN (Recurrent Neural Network)</b>이란 무엇인가? RNN은 여러 time-step에 걸쳐서, 현재 time-step에서 신경망의 출력이 다음 time-step의 신경망의 입력으로 들어가는 구조를 띄고 있다. 이러한 구조는 태생적으로 순서가 중요한 자연어 데이터, 시계열 데이터 등의 시퀀스 데이터의 특징을 추출하는데 유리하다.<br>
+    <b>LSTM (Long-Short Term Memory)</b>이란 무엇인가? LSTM은 RNN의 한 종류인데, vanilla RNN에 비해 더 복잡한 구조를 지닌다. RNN과 달리 장기기억 메모리와 단기기억 메모리 두 개의 path로 hidden state가 time-step을 걸쳐 전달된다.<br>
+    <b>RNN의 한계는 무엇인가?</b> Long-term dependency와 gradient vanishing 문제가 있다. Long-term dependency는 시퀀스의 길이가 길어질 수록, RNN이 시퀀스 앞쪽의 내용을 까먹는 문제이다. Gradient vanishing도 비슷하게 시퀀스 길이가 길어질수록, 역전파 때 gradient가 앞쪽까지 전달되지 못하는 문제이다. Gradient가 1보다 작은 값으로 계산될 때, chain rule에 의해 gradient가 곱해지면서 출력 레이어에서 멀어질수록 0에 가까운 값이 계산되기 때문이다. 이를 완화하기 위해 LSTM이 고안되었으나 순환 구조의 구조적 문제 때문에 완전히 해결하지는 못한다.<br>
+    <b>Attention mechanism이란 무엇인가?</b> Query, key, value 세 가지 input에 대해 query와 key의 유사도(i.e. attention score)를 계산하고, 이를 다시 value값과 내적하는 방식으로 계산되는 특징 추출 방식이다. 위와 같은 RNN의 문제를 완화하고자 제안되었는데, 매 RNN time-step마다 현재 step의 RNN hidden state를 query, 이전 step들의 RNN hidden state들을 key, value로 사용하여 attend하면 time-step이 길어지더라도 이전 값들을 참조하기 때문에 long-term dependency와 gradient vanishing 문제를 해결할 수 있다.<br>
+    <b>Transformer란 무엇인가?</b> Attention mechanism으로만 구성된 신경망 구조이다. 기본적으로 기계번역을 위한 encoder-decoder 구조로 제안되었으나, encoder나 decoder만 사용하여 다양한 태스크에 적용된다. Self-attention mechanism을 새롭게 제안하여 입력 시퀀스 내에서의 장거리 종속성 학습을 유리하게 만들었으며, 효율적인 병렬처리가 가능하게 했다. <br>
+</p>
+
 <p class="SubSection">Machine Learning</p>
 <p class="SubSection">Reinforcement Learning</p>
 <p class="BodyText">
