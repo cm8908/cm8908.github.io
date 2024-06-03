@@ -27,7 +27,15 @@ abstract: 각종 CS/DS/Algo/ML/DL/AI/Data Science 지식들을 간결 명료하�
     <b>Attention mechanism이란 무엇인가?</b> Query, key, value 세 가지 input에 대해 query와 key의 유사도(i.e. attention score)를 계산하고, 이를 다시 value값과 내적하는 방식으로 계산되는 특징 추출 방식이다. 위와 같은 RNN의 문제를 완화하고자 제안되었는데, 매 RNN time-step마다 현재 step의 RNN hidden state를 query, 이전 step들의 RNN hidden state들을 key, value로 사용하여 attend하면 time-step이 길어지더라도 이전 값들을 참조하기 때문에 long-term dependency와 gradient vanishing 문제를 해결할 수 있다.<br>
     <b>Transformer란 무엇인가?</b> Attention mechanism으로만 구성된 신경망 구조이다. 기본적으로 기계번역을 위한 encoder-decoder 구조로 제안되었으나, encoder나 decoder만 사용하여 다양한 태스크에 적용된다. Self-attention mechanism을 새롭게 제안하여 입력 시퀀스 내에서의 장거리 종속성 학습을 유리하게 만들었으며, 효율적인 병렬처리가 가능하게 했다. <br>
 </p>
-
+<p class="BodyText">
+    <b>정보량</b>이란 무엇인가? 어떤 정보를 표현하는데 필요한 자원(비트)의 수를 의미한다. /(-\log{P(x)}/)와 같이 표현된다. 예를 들어, 동전을 던져서 앞면이 나오는 사건의 정보량은 /(-\log{\frac{1}{2}}=1/)로, 1비트로 해당 사건을 표현할 수 있다. 확률이 낮은 사건일수록 (예측하기 힘들고 깜짝 놀랄만한 일이기에) 정보량이 높다.<br>
+    <b>엔트로피</b>란 무엇인가? 사건의 확률 분포에 대한 정보량이다. 즉, 정보량의 기댓값이다. /(-\sum_{x\in X}P(x)\log{P(x)}/) 균등분포에서 최대값/(\log{n}/)을 가진다.<br>
+    <b>교차 엔트로피</b>란 무엇인가? 두 확률 분포 사이의 차이를 측정하는 지표이다. /(Q(x)/)를 예측 확률 분포, /(P(x)/)를 실제 확률 분포라고 하면, 교차 엔트로피는 /(-\sum_{x\in X}P(x)\log{Q(x)}/)와 같이 계산된다. /(P(x)/)와 /(Q(x)/)가 같은 값을 가질 때 0의 값을 가지고, 완전히 다른 값(0/1)의 값을 가질 때 최소값/(-\inf/)을 가진다.<br>
+    <b>이진 교차 엔트로피</b>란 무엇인가? 클래스의 개수가 두개일때의 교차 엔트로피이다. /(-\sum{Q(x)\log{P(x)}+(1-Q(x))\log{(1-P(x))}}/)<br>
+    <b>KL-Divergence</b>란 무엇인가? 두 확률 분포의 차이를 나타낸다. 비대칭적이며, 항상 0보다 큰 값을 가진다. /(\sum{P(x)\log{\frac{P(x)}{Q(x)}}}/).<br>
+    <b>KLD와 교차 엔트로피의 관계는 무엇인가?</b>교차 엔트로피는 실제 확률 /(P(x)/)에 대한 엔트로피 /(H(P)/)와 /(D_{KL}(P||Q)/)의 합으로 나타낸다. KLD는 교차 엔트로피에서 엔트로피를 뺀 값이다. 즉, 교차 엔트로피는 두 분포의 절대적인 차이를 나타내는 반면, KLD는 상대적인 차이를 나타낸다 (KLD는 상대 엔트로피라고도 불린다). 다중클래스 분류 문제에서, 실제 확률 P(x)는 정답 레이블에서 1, 나머지는 0이기 때문에, /(H(P)=0/)이 되고, 따라서 KLD=교차엔트로피가 된다.
+    <b>교차 엔트로피는 왜 딥러닝 손실함수에 사용되는가?</b> 먼저, 두 분포의 차이를 나타내는 지표이다. 교차 엔트로피의 최소화는 최대우도추정과 같다. 교차 엔트로피는 로그우도의 기댓값의 음수와 같기 때문이다. 또한 교차 엔트로피는 예측와 정답이 일치할 떄의 확률의 하한과 같다.
+</p>
 <p class="SubSection">Machine Learning</p>
 <p class="SubSection">Reinforcement Learning</p>
 <p class="BodyText">
