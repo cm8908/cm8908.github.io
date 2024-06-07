@@ -115,6 +115,12 @@ a:visited{
     column-count: 1;
 }
 
+.BodyText span {
+    display: block;
+    text-indent: 1.5em;
+    margin-top: 13px;
+}
+
 .BodyText2Col{
     font-family: CMR;
     font-size: 23px;
