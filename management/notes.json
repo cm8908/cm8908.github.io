@@ -2,80 +2,86 @@
     "htmls": [
         {
             "title": "DeepCAD: A Deep Generative Network for Computer-Aided Design Models",
-            "time": 1711720255.14912,
+            "time": 1717376832.592,
             "href": "/notes/cad/DeepCAD.html",
             "category": "cad"
         },
         {
             "title": "SkexGen: Autoregressive Generation of CAD Construction Sequences with Disentangled Codebooks",
-            "time": 1712038506.4280493,
+            "time": 1717376832.601,
             "href": "/notes/cad/SkexGen.html",
             "category": "cad"
         },
         {
             "title": "SolidGen: An Autoregressive Model for Direct B-rep Synthesis",
-            "time": 1713934317.2088206,
+            "time": 1717376832.609,
             "href": "/notes/cad/SolidGen.html",
             "category": "cad"
         },
         {
             "title": "DDPM 수식유도",
-            "time": 1712036716.935063,
+            "time": 1717376832.701,
             "href": "/notes/diffusion/deriving-ddpm.html",
             "category": "diffusion"
         },
         {
             "title": "Combining Reinforcement Learning and Optimal Transport for the Traveling Salesman Problem",
-            "time": 1713935053.0013726,
+            "time": 1717376832.772,
             "href": "/notes/routing/Combining Reinforcement Learning and Optimal Transport.html",
             "category": "routing"
         },
         {
-            "title": "Learning to optimise general TSP instances",
-            "time": 1713934948.7549064,
-            "href": "/notes/routing/Learning to optimise general TSP instances.html",
-            "category": "routing"
-        },
-        {
             "title": "Learning to Solve Routing Problems via Distributionally Robust Optimization",
-            "time": 1713934839.8407774,
+            "time": 1717376832.782,
             "href": "/notes/routing/Learning to Solve Routing Problems via Distributio 65140bf5a236482ca03855da30e3af88.html",
             "category": "routing"
         },
         {
+            "title": "Learning to optimise general TSP instances",
+            "time": 1717376832.791,
+            "href": "/notes/routing/Learning to optimise general TSP instances.html",
+            "category": "routing"
+        },
+        {
             "title": "Solve Traveling Salesman Problem by Monte Carlo Tree Search and Deep Neural Network",
-            "time": 1713934608.8479033,
+            "time": 1717376832.801,
             "href": "/notes/routing/Solve Traveling Salesman Problem by Monte Carlo Tree Search.html",
             "category": "routing"
         },
         {
             "title": "Variants of Traveling Salesman Problem: A Survey",
-            "time": 1713934762.8012097,
+            "time": 1717376832.81,
             "href": "/notes/routing/Variants of Traveling Salesman Problem A Survey.html",
             "category": "routing"
         },
         {
             "title": "Assignment Problem",
-            "time": 1713935227.4073212,
+            "time": 1717376832.879,
             "href": "/notes/unclassified/Assignment Problem.html",
             "category": "unclassified"
         },
         {
-            "title": "Knowledge Bank",
-            "time": 1712152344.464424,
-            "href": "/notes/unclassified/knowledge-bank.html",
-            "category": "unclassified"
-        },
-        {
             "title": "Optimal Transport Problem",
-            "time": 1713935347.4927733,
+            "time": 1717376832.888,
             "href": "/notes/unclassified/Optimal Transport Problem.html",
             "category": "unclassified"
         },
         {
             "title": "Quadratic Assignment Problem",
-            "time": 1713935351.252222,
+            "time": 1717376832.896,
             "href": "/notes/unclassified/Quadratic Assignment Problem.html",
+            "category": "unclassified"
+        },
+        {
+            "title": "Knowledge Bank",
+            "time": 1717376832.907,
+            "href": "/notes/unclassified/knowledge-bank.html",
+            "category": "unclassified"
+        },
+        {
+            "title": "MoCo: Momentum Contrast for Unsupervised Visual Representation Learning",
+            "time": 1717727950.098,
+            "href": "/notes/unclassified/MoCo.html",
             "category": "unclassified"
         }
     ]
