@@ -1,0 +1,33 @@
+---
+layout: default
+title: "MoCo: Momentum Contrast for Unsupervised Visual Representation Learning"
+author: Minseop Jung
+date: June 2024
+abstract: MoCo를 읽으며; 질문들.
+---
+<p class="Section">Shuffling BN - Issues with BN in Contrastive Learning Setup</p>
+<p class="BodyText">
+    MoCo의 저자들은 contrastive learning setup에서 batch normalization의 문제점을 지적하여 Shuffling BN을 제안했다. BN에는 어떤 문제가 있고, Shuffling BN은 어떻게 그 문제를 해결했을까?
+</p>
+<p class="SubSection">Issues with Vanilla BN in Contrastive Learning</p>
+<p class="BodyText">
+    Information Leakage / Cheating: CL에서, 배치 내에는 positive sample과 negative sample이 혼재해있다. 그런데 배치 정규화 시 배치 내의 sample들에 대해 mean과 variance를 계산하기 때문에, positive와 negative sample들이 "shared information"을 학습할 수 있다. 이로 인해 모델이 의미 있는 표현 학습을 수행하는 대신, 이러한 shared information을 활용해 positive-negative를 구별해 단순히 loss만 줄이는 학습을 수행할 수 있다.
+</p>
+<p class="SubSection">How does Shuffling BN Works?</p>
+<p class="BodyText">
+    Shuffling BN은 이러한 문제를 예방하고자, Multi-GPU training에서 각 GPU에 올라와있는 intermediate image feature들을 섞어버린다. 이렇게 섞인 image features에 대해 batch normalization statistics를 계산하기 때문에, 기존 minibatch간의 shared information이 발생하는 것을 막아버린다.
+    <span>비유를 들자면, 시험을 볼때마다 옆자리 짝꿍을 무작위로 바꿔버려서 서로 상의해서 cheating하는일이 없도록 하는 것과 같은 이치인듯 하다.</span>
+</p>
+
+<p class="Section">왜 MoCo의 queue가 SimCLR의 large batch size에 비해 효율적일까?</p>
+<p class="BodyText">
+    SimCLR의 문제점으로, better learning을 위해서는 larger number of negative samples (i.e. larger batch size)가 필요하다고 한다. 그런데, MoCo에서 대안으로 제시하는 queue size를 보면 6만5천개? 가관이다. 그런데 어떻게 이 queue가 더 효율적인걸까? 탐구해보자.
+
+    <span>예를 들어, 1000개의 sample로 구성된 배치가 있다고 가정하자. 이 때, 배치 내의 각 이미지 sample은 1MB이다. 배치에 대한 GPU 메모리 사용량은 1000MB가 되겠다. 반면, 256개의 sample와 size가 1000인 queue가 있다고 가정하자. 이 때, queue의 원소들은 이미지가 아닌 feature vector들이기 때문에, raw image에 비해 훨씬 적은 메모리를 소요한다 (Let's say 0.1MB) 그렇다면 단순 계산만 해봐도 queue (1000*0.1=100MB) + minibatch (256MB) = 356MB정도밖에 되지 않는다.</span>
+</p>
+
+<p class="IndexSection">Index</p>
+<p class="IndexBtn" fontsize>
+    <a href="/notes/notes-index.html">Back to Notes-Index</a> <br>
+    <a href="/index.html">Back to Home</a>
+</p>   
