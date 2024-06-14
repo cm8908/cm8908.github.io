@@ -55,24 +55,6 @@
             "category": "routing"
         },
         {
-            "title": "Assignment Problem",
-            "time": 1717376832.879,
-            "href": "/notes/unclassified/Assignment Problem.html",
-            "category": "unclassified"
-        },
-        {
-            "title": "Optimal Transport Problem",
-            "time": 1717376832.888,
-            "href": "/notes/unclassified/Optimal Transport Problem.html",
-            "category": "unclassified"
-        },
-        {
-            "title": "Quadratic Assignment Problem",
-            "time": 1717376832.896,
-            "href": "/notes/unclassified/Quadratic Assignment Problem.html",
-            "category": "unclassified"
-        },
-        {
             "title": "Knowledge Bank",
             "time": 1717376832.907,
             "href": "/notes/unclassified/knowledge-bank.html",
@@ -89,6 +71,24 @@
             "time": 1718278116.122,
             "href": "/notes/unclassified/Text2VRScene.html",
             "category": "unclassified"
+        },
+        {
+            "title": "Assignment Problem",
+            "time": 1717376832.879,
+            "href": "/notes/optimization/Assignment Problem.html",
+            "category": "optimization"
+        },
+        {
+            "title": "Optimal Transport Problem",
+            "time": 1717376832.888,
+            "href": "/notes/optimization/Optimal Transport Problem.html",
+            "category": "optimization"
+        },
+        {
+            "title": "Quadratic Assignment Problem",
+            "time": 1717376832.896,
+            "href": "/notes/optimization/Quadratic Assignment Problem.html",
+            "category": "optimization"
         }
     ]
 }
