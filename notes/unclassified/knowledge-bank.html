@@ -18,6 +18,9 @@ abstract: 각종 CS/DS/Algo/ML/DL/AI/Data Science 지식들을 간결 명료하�
     <span><b>Convolution 연산의 출력 차원은 어떻게 계산되는가?</b> \(\frac{W - k + 2*P}{S} + 1\) 이 때, W는 데이터의 width, k는 kernel size, P는 padding size, S는 stride이다.</span>
     <span><b>왜 CNN은 이미지 데이터에 효과적인가?</b> 이미지 데이터는 지역적 정보가 중요한 데이터이다. 예를 들어, 사람 얼굴 이미지라고 하면 눈, 코, 입, 귀 등등의 semantic한 정보는 인접한 픽셀들이 담고 있다. 따라서 이러한 지역적 정보를 convolution을 통해 추출하는 CNN이 이미지 데이터의 특징 추출에 효과적이다.</span>
     <span><b>Fully Convolutional Neural Network</b>는 convolution & deconvolution 연산으로만 구성된 CNN이다. 기존 CNN과 달리 fully-connected layer가 들어가지 않기 때문에, 입력 사이즈를 보존해야 하는 segmentation 태스크 등에서 유리하며, 더 파라미터 개수 측면에서 효율적이다.</span>
+    <span><b>Deconvolution</b> 연산은 무엇인가? Convolution 연산을 역으로 수행하는 연산으로, convolution 이전의 사이즈로 데이터를 upsampling하는 연산이다. 주로 transposed convolution이나 upsampling 기법을 사용한다.</span>
+    <span><b>Transposed convolution</b>은 무엇인가? 학습가능한 커널을 두고 입력 원소를 커널과 곱해 출력의 대응되는 자리에 배치시킨다.</span>
+    <span>그렇다면 transposed convolution이 아닌 <b>Upsampling</b> 기법은 무엇이 있는가? 최근접 픽셀값으로 채운다. 0으로 채운다. 보간값을 채운다. (pooling의 경우) pooling 전의 값을 기억해두었다가 채운다. 등등 여러 기법이 있다.</span>
     <span><b>CapsuleNet</b>은 CNN의 max pooling 연산이 가지는 translation invariance를 지적하며 제안되었다. Max pooling 과정에서 위치 정보가 손실될 수 있고, convolution 연산은 태생적으로 이미지 내 객체의 위치에 무관하게 학습되기 때문에 전역적 정보가 충분히 보존되지 않을 수 있다. Convolution의 수용 영역 한계는 <b>ViT</b>의 attention mechanism으로도 극복할 수 있다.</span>
     <span><b>Pointwise Convolution</b>은 무엇인가? 1x1 컨볼루션을 적용하여 이미지 크기는 유지하되 차원(채널)을 조절하기 위해 사</span>
     <span><b>Depthwise Convolution</b>은 무엇인가? 한 개의 커널이 한 개의 채널에 대해 컨볼루션을 수행한다. 따라서 이미지 크기는 변하되 채널 수는 불변한다. </span>
@@ -46,7 +49,32 @@ abstract: 각종 CS/DS/Algo/ML/DL/AI/Data Science 지식들을 간결 명료하�
     <span><b>우도와 확률의 차이</b>는 무엇인가? 확률은 어떤 확률 분포가 주어졌을 때, 관측값이 해당 분포에서 얼마의 확률로 존재하는가를 나타낸다. 우도는 관측값이 해당 분포에서 나왔을 확률을 나타낸다. 확률에서는 분포가 고정되고, 우도에서는 관측값이 고정된다. 확률밀도함수에서 관측구간의 면적이 확률이고, 특정 관측값의 y값이 해당 확률분포에서의 우도이다. 참고로 연속확률분포에서 특정 관측값의 확률은 0이다 (적분을 생각해</span>
 </p>
 <p class="SubSection">Machine Learning</p>
+<p class="BodyText">
+    <b>Precision</b>이란 양성으로 예측한 것 중에 실제 양성인 것의 비율 \(\frac{TP}{TP+FP}\), <b>Recall</b>은 실제 양성인 것 중에 양성으로 예측한 것의 비율 \(\frac{TP}{TP+FN}\)이다. Precision은 오탐(FP)을 줄이고자 할 때, Recall은 미탐(FN)을 줄이고자 할 때 유용하다. 예를 들어, 스팸 메일을 분류할 때, 스팸으로 분류된 정상 메일을 줄이고 싶다면 Precision을 높이는 것이, 병 진단에서 병에 걸린 환자를 놓치지 않으려는 경우 Recall을 높이는 것이 유용하다.
+    <span><b>F1-score</b>는 Precision과 Recall의 조화평균으로 계산된다 \(\frac{2PR}{P+R}\). 조화평균의 특성상 한쪽만 높을 때 전체 수치가 올라가는 것을 방지하기에, F1-score는 Precision과 Recall 모두 균형있게 평가하고자 할 때 유용하다. 다중분류 태스크에서 F1-score 등의 지표를 계산할 때, <b>Macro-Average</b>와 <b>Micro Average</b>가 사용된다. 전자는 각 클래스별로 평균 낸 것이고 \(\frac{1}{C}\sum_{i=1}^C F1_i\), 후자는 각 샘플별로 평균 낸 것이다 \(\frac{1}{N}\sum_{i=1}^N F1_i\).</span>
+    <span>
+        <b>Sensitivity</b>는 Recall과 같은 의미로, TPR이다. <b>Specificity</b>는 실제 음성인 것 중에 음성으로 예측한 것의 비율로, TNR이다. Sensitivity(TPR)와 1 - Specificity(FPR)을 이용해 만든 그래프가 ROC Curve인데, x축에 FPR이, y축에 TPR이 들어간다. 그래프가 좌상단에 위치할 수록 성능이 좋다는 것을 의미하고, 이에 대한 Area Under Curve (AUC)가 그것을 수치로 나타낸다. ROC Curve는 분류 임계값의 변화에 따라 변화하는 성능을 확인할 수 있어 유용하다.
+    </span>
+    <span>
+        <b>Soft Vector Machine (SVM)</b>이란 무엇인가? 데이터 공간을 둘로 나누는 hyperplane을 찾는 알고리즘이다. Hyperplane 가까이에 위치한 데이터포인트(i.e. Support vectors)와 초평면 사이의 거리(Margin)을 최대화하는 hyperplane을 찾으면 된다.
+    </span>
+    <span>
+        <b>Random Forest</b>란 무엇인가? 여러 개의 Decision Tree를 독립적으로 학습시켜 최종적으로 개별 예측을 평균내거나 투표를 통해 결정하는 앙상블 기법이다. 이 때 <b>Decision Tree</b>란, 데이터의 특징을 노드로 갖는 트리 구조를 만들어 여러 가지 특징에 따라 분류/회귀를 수행하는 알고리즘이다.<br>
+    </span>
+    <span>
+        <b>앙상블 학습</b>은 무엇인가? 여러 개의 모델을 결합하여 하나의 정확하고 안정적인 예측 모델을 만드는 기법이다. <b>Bagging (Boostrap Aggregating)</b>은 여러 개의 모델을 학습시키고 그 결과를 평균내거나 투표로 결합한다. <b>Boosting</b>은 여러 개의 모델을 순차적으로 학습시키며 이전 모델의 오차를 다음 모델이 줄이는 식으로 학습을 진행한다. RF는 Bagging에, GBM은 Boosting에 속한다.
+    </span>
+</p>
+
 <p class="SubSection">Reinforcement Learning</p>
+<p class="BodyText">
+    <b>Monte Carlo</b> 방법은 한 에피소드가 끝날 때까지 에이전트가 환경과 상호작용하며 보상을 수집하고, 에피소드 종료 후 계산한 보상으로 가치 함수를 업데이트 하는 방법이다. 반면 <b>Temporal Difference</b>는 특정 time-step마다 현재 가치 함수의 차이를 이용해 업데이트하는 방법이다. MC는 에피소드가 끝나야 학습이 가능하기 때문에 긴 에피소드를 갖는 문제에서 비효율적이며, 총 보상을 한번에 업데이트 하기에 분산이 크다. 반면 TD는 에피소드가 끝나기 전에 총 보상의 근사치로 학습하기 때문에 편향이 발생할 수 있다.
+    <span>TD에는 여러 가지 변형이 있는데, 먼저 <b>TD(0)</b>는 가장 기본적인 형태로 매 time-step마다 가치 함수를 업데이트 하는 방법이다. <b>n-step TD</b>는 n번의 time-step동안의 보상을 고려하여 학습하기 때문에 TD(0)에 비해 편향이 감소한다. <b>TD(\(\lambda\))</b>는 \(\lambda\)라는 파라미터를 두어 TD(0)와 MC 사이의 균형을 조절하는 방법이다. \(\lambda\)가 1이면 MC와 동일하다. </span>
+    <span><b>On-policy</b> 학습과 <b>Off-policy</b> 학습은 무엇인가? 전자는 에이전트가 행동을 선택하는 정책과 학습되는 정책이 동일한 반면, 후자는 다르다. 예를 들어, 에이전트가 행동을 취할때는 \(\epsilon\)-greedy하게, 학습할 때는 greedy하게 행동을 선택한다면 off-policy이다. 전자는 매 step마다 데이터 샘플을 한번 보고 버리기 때문에 sample efficiency가 비교적 낮은 반면 후자는 과거 정보를 꺼내 쓸 수 있어 환경과의 상호작용을 적게 해도 된다. 하지만 과거와 현재의 policy가 많이 달라진 경우 학습이 어려울 수 있다.</span>
+    <span><b>Online</b> 학습은 에이전트가 직접 환경과 상호작용하며 데이터를 수집하고 학습하는 방법이고, <b>Offline</b> 학습은 실시간 상호작용이 불가능하며 이전에 기록된 플레이 기록을 가지고 학습한다. Offline 학습은 필연적으로 off-policy이지만, Online 학습은 on-policy와 off-policy가 둘 다 가능하다.</span>
+</p>
+
+<b>Policy gradient</b>
 <p class="BodyText">
 
 </p>
