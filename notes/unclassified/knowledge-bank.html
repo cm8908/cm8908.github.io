@@ -36,6 +36,9 @@ abstract: 각종 CS/DS/Algo/ML/DL/AI/Data Science 지식들을 간결 명료하�
     <span><b>Attention mechanism이란 무엇인가?</b> Query, key, value 세 가지 input에 대해 query와 key의 유사도(i.e. attention score)를 계산하고, 이를 다시 value값과 내적하는 방식으로 계산되는 특징 추출 방식이다. 위와 같은 RNN의 문제를 완화하고자 제안되었는데, 매 RNN time-step마다 현재 step의 RNN hidden state를 query, 이전 step들의 RNN hidden state들을 key, value로 사용하여 attend하면 time-step이 길어지더라도 이전 값들을 참조하기 때문에 long-term dependency와 gradient vanishing 문제를 해결할 수 있다.</span>
     <span><b>Transformer란 무엇인가?</b> Attention mechanism으로만 구성된 신경망 구조이다. 기본적으로 기계번역을 위한 encoder-decoder 구조로 제안되었으나, encoder나 decoder만 사용하여 다양한 태스크에 적용된다. Self-attention mechanism을 새롭게 제안하여 입력 시퀀스 내에서의 장거리 종속성 학습을 유리하게 만들었으며, 효율적인 병렬처리가 가능하게 했다. </span>
 </p>
+<p class="BodyText">
+    Diffusion Models, DDPM, DDIM
+</p>
 <p class="SubSection">Information Theory & Statistics</p>
 <p class="BodyText">
     <b>정보량</b>이란 무엇인가? 어떤 정보를 표현하는데 필요한 자원(비트)의 수를 의미한다. \(-\log{P(x)}\)와 같이 표현된다. 예를 들어, 동전을 던져서 앞면이 나오는 사건의 정보량은 \(-\log{\frac{1}{2}}=1\)로, 1비트로 해당 사건을 표현할 수 있다. 확률이 낮은 사건일수록 (예측하기 힘들고 깜짝 놀랄만한 일이기에) 정보량이 높다.
