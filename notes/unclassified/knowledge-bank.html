@@ -35,6 +35,7 @@ abstract: 각종 CS/DS/Algo/ML/DL/AI/Data Science 지식들을 간결 명료하�
     <span><b>RNN의 한계는 무엇인가?</b> Long-term dependency와 gradient vanishing 문제가 있다. Long-term dependency는 시퀀스의 길이가 길어질 수록, RNN이 시퀀스 앞쪽의 내용을 까먹는 문제이다. Gradient vanishing도 비슷하게 시퀀스 길이가 길어질수록, 역전파 때 gradient가 앞쪽까지 전달되지 못하는 문제이다. Gradient가 1보다 작은 값으로 계산될 때, chain rule에 의해 gradient가 곱해지면서 출력 레이어에서 멀어질수록 0에 가까운 값이 계산되기 때문이다. 이를 완화하기 위해 LSTM이 고안되었으나 순환 구조의 구조적 문제 때문에 완전히 해결하지는 못한다.</span>
     <span><b>Attention mechanism이란 무엇인가?</b> Query, key, value 세 가지 input에 대해 query와 key의 유사도(i.e. attention score)를 계산하고, 이를 다시 value값과 내적하는 방식으로 계산되는 특징 추출 방식이다. 위와 같은 RNN의 문제를 완화하고자 제안되었는데, 매 RNN time-step마다 현재 step의 RNN hidden state를 query, 이전 step들의 RNN hidden state들을 key, value로 사용하여 attend하면 time-step이 길어지더라도 이전 값들을 참조하기 때문에 long-term dependency와 gradient vanishing 문제를 해결할 수 있다.</span>
     <span><b>Transformer란 무엇인가?</b> Attention mechanism으로만 구성된 신경망 구조이다. 기본적으로 기계번역을 위한 encoder-decoder 구조로 제안되었으나, encoder나 decoder만 사용하여 다양한 태스크에 적용된다. Self-attention mechanism을 새롭게 제안하여 입력 시퀀스 내에서의 장거리 종속성 학습을 유리하게 만들었으며, 효율적인 병렬처리가 가능하게 했다. </span>
+    <b>BERT</b>란 무엇인가?
 </p>
 <p class="BodyText">
     Diffusion Models, DDPM, DDIM
@@ -150,6 +151,12 @@ abstract: 각종 CS/DS/Algo/ML/DL/AI/Data Science 지식들을 간결 명료하�
     <span><b>TF-IDF</b>는 term frequency (문서 내에서 단어의 등장 빈도)와 inverse document frequency (document frequence - 특정 단어가 전체 문서중에서 몇개의 문서에서 등장하는지 - 의 역수)의 곱으로 계산된다. 일반적으로 흔히 등장하는 의미 없는 단어들에 대해 낮은 가중치를 주고, 특정 문서에 자주 등장하는 (진짜 중요한) 단어에 가중치를 높게 준다. 그러나 여전히 문맥은 무시하는 단점이 있다.</span>
     <span><b>N-gram</b>은 문서 내의 N개의 연속된 단어들을 시퀀스로 묶어서 표현하는 방법이다. 예를 들어, "I love you"에 대한 Bi-gram은 ("I love", "love you")이다. N-gram은 문맥을 고려할 수 있으나, N이 커질수록 발생하는 차원의 저주를 피할 수 없다.</span>
     <span><b>Word Embedding</b>은 주로 학습된 딥러닝 모델을 통해 각각의 단어를 임베딩 벡터로 나타내는 방법이다. 각각의 임베딩 벡터들은 임베딩 공간에서 단어들 간의 의미적 관계를 반영하여 표현된다.</span>
+</p>
+<p class="BodyText">
+    <b>BLEU</b> 점수란 무엇인가? Bilingual Evaluation Understudy, 모델이 생성한 문장과 사람이 쓴 참조 문장 사이의 유사도를 구하는 지표이다. 두 문장 사이의 n-gram을 비교하여 측정하며, 모델이 생성한 문장의 n-gram 중에 두 문장에 모두 등장하는 n-gram의 비율이다. 주로 기계 번역에서 쓰인다.<br>
+    <span><b>ROUGE</b>란 무엇인가? 모델의 문장과 참조 문장 사이의 일치도를 평가한다. ROUGE-N은 n-gram을 기준으로, ROUGE-L은 최장공통수열(LCS)를 기준으로, ROUGE-S는 Skip-bigram을 기준으로 측정한다. 주로 텍스트 요약을 평가하는데 쓰인다.</span>,
+    <span><b>ROUGE-N과 BLEU의 차이점</b>은 무엇인가? BLEU는 Precision 중심, ROUGE-N은 Recall 중심으로 계산한다. 따라서 BLEU는 번역의 정확성을 평가하는데 강점이 있으나 참조 문장의 모든 요소를 포괄하지는 못할 수 있다. ROUGE는 요약의 포괄성을 평가하는데 강점이 있으나 생성된 텍스트가 지나치게 길어질 수 있다. BLEU는 <b>생성된 텍스트가 분모</b>에, ROUGE는 <b>참조 텍스트가 분모</b>에 온다.</span>
+    <span></span>
 </p>
 <p class="BodyText">
     시계열 데이터의 구성 요소는 무엇이 있는가? 첫째, <b>추세 Trend</b>는 시간에 따른 데이터가 증가하거나 감소하는 경향을 나타낸다. 둘째, <b>계절성 Seasonality</b>는 주로 계절이나 기후와 같이 절대적 시간 주기에 따라 반복되는 정보를 담고 있으며 비교적 짧은 순환 주기를 가진다. Naive한 딥러닝 방법으로 예측하지 못한다. 셋째, <b>주기성 Cycle</b>은 불규칙적인 시간 간격에 따라 반복되는 정보를 담고 있으며, 비교적 장기적인 순환 주기를 가진다. 넷째, <b>불규칙성 Irregularity</b>은 외부적인 사건에 의해서 발생하는 예측할 수 없는 무작위적인 성분이다.
