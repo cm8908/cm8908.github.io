@@ -76,6 +76,7 @@ abstract: 각종 CS/DS/Algo/ML/DL/AI/Data Science 지식들을 간결 명료하�
     <span>TD에는 여러 가지 변형이 있는데, 먼저 <b>TD(0)</b>는 가장 기본적인 형태로 매 time-step마다 가치 함수를 업데이트 하는 방법이다. <b>n-step TD</b>는 n번의 time-step동안의 보상을 고려하여 학습하기 때문에 TD(0)에 비해 편향이 감소한다. <b>TD(\(\lambda\))</b>는 \(\lambda\)라는 파라미터를 두어 TD(0)와 MC 사이의 균형을 조절하는 방법이다. \(\lambda\)가 1이면 MC와 동일하다. </span>
     <span><b>On-policy</b> 학습과 <b>Off-policy</b> 학습은 무엇인가? 전자는 에이전트가 행동을 선택하는 정책과 학습되는 정책이 동일한 반면, 후자는 다르다. 예를 들어, 에이전트가 행동을 취할때는 \(\epsilon\)-greedy하게, 학습할 때는 greedy하게 행동을 선택한다면 off-policy이다. 전자는 매 step마다 데이터 샘플을 한번 보고 버리기 때문에 sample efficiency가 비교적 낮은 반면 후자는 과거 정보를 꺼내 쓸 수 있어 환경과의 상호작용을 적게 해도 된다. 하지만 과거와 현재의 policy가 많이 달라진 경우 학습이 어려울 수 있다.</span>
     <span><b>Online</b> 학습은 에이전트가 직접 환경과 상호작용하며 데이터를 수집하고 학습하는 방법이고, <b>Offline</b> 학습은 실시간 상호작용이 불가능하며 이전에 기록된 플레이 기록을 가지고 학습한다. Offline 학습은 필연적으로 off-policy이지만, Online 학습은 on-policy와 off-policy가 둘 다 가능하다.</span>
+    <span><b>Policy Gradient</b>란 정책 함수를 파라미터화하여 gradient를 계산하고, gradient ascent를 통해 보상을 최대화 하도록 하는 방법이다. 매우 큰 상태 공간에 대해 효율적으로 처리할 수 있다. <b>REINFORCE</b>는 Monte Carlo 방식으로 여러 에피소드로부터 얻은 return을 기반으로 policy gradient를 수행하는데, 간단하지만 큰 분산을 갖는다. <b>Actor-Critic</b>은 정책을 업데이트하는 Actor와 가치 함수를 추정하는 Critic을 각각 학습시켜 Critic의 추정을 바탕으로 Actor를 학습시키는 방식이다.</span>
 </p>
 
 <b>Policy gradient</b>
