@@ -1,235 +1,111 @@
-# Change Log
+# Changelog
 
-## 2.2.6 (2019-02-02)
+All notable changes to this project will be documented in this file.
 
-### Enhancements
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-- Add [commit linter](https://commitlint.js.org/)
-- Add [EditorConfig](https://editorconfig.org/)
-- Update npm packages
+## [3.1.2] - 2022-09-27
 
-### Bug Fixes
+### Changed
 
-- Fix some spelling errors in documents
-- Fix some errors in configs
+- Moved documentation from wiki to repo
+- Bumped up NPM dependencies
+- Created this `CHANGELOG.md` file
+- Cleaned up the `README.md` file
 
-## 2.2.5 (2019-12-08)
+## [3.1.1] - 2021-04-15
 
-### Enhancements
+### Changed
 
-- Update to Jekyll 4.0
-- Add custom snippets for main/top, main/bottom, article/top,  article/bottom, etc
-- Add Medium, Zhihu social icons
-- Add Google Custom Search support
-- Add Korean locale (@ssosso)
-- Add French locale (@ctrl-q)
-- Add Docker support
+- Added `formspree_form_id` config
+- Bumped up dependencies
 
-## 2.2.4 (2018-12-10)
+### Fixed
 
-### Enhancements
+- Fixed minor bugs
 
-- Swiper component support mouse move
-- Add lightbox (modal image gallery)
-- Add Valine comment system (@Lloyar)
+## [3.1.0] - 2020-04-02
 
-### Bug Fixes
+### Added
 
-- Fix some spelling errors in documents (@Krinkle)
+- Added MathJax library to render math expressions, thanks to [@XieGuochao](https://github.com/XieGuochao)
 
-## 2.2.3 (2018-11-11)
+### Changed
 
-### Enhancements
+- Updated Google Analytics script, thanks to [@JHLeeeMe](https://github.com/JHLeeeMe)
 
-- Add Swiper component
-- Add AddThis sharing service (@liao961120)
-- Add extensions for demos (CodePen)
-- Add special stylesheets for print
+### Fixed
 
-## 2.2.2 (2018-10-21)
+- Fixed hero URL, thanks to [@JoelSalzesson](https://github.com/JoelSalzesson)
 
-### Enhancements
+## [3.0.2] - 2020-02-05
 
-- Add extensions for audios (SoundCloud, Netease Cloud Music), videos (YouTube, TED, bilibili) and slide(SlideShare)
-- Add AddToAny sharing service
+### Fixed
 
-## 2.2.1 (2018-10-02)
+- Added assets folder
 
-### Enhancements
+## [3.0.1] - 2020-02-05
 
-- Update screenshots
-- Landing layout `data.sections` item's `image` add `full_width` setting
-- Remove `header.type` and add `header.background` setting
-- Page layout sidebar use document scroll when viewport width < 1024px, this enhance the user experience on a phone or a pad
-- Telegram social icon (@WangQiru)
-- Search panel use dark background
+### Fixed
 
-## 2.2.0 (2018-09-16)
+- Fixed post SVG icons
 
-### Enhancements
+## [3.0.0] - 2020-02-05
 
-- `article_header` setting for page layout
-- Articles layout
-- New grid system
-- Image, card, item and hero components
-- Tag additional style
-- chart.js update to 2.7.2, mathjax update to 2.7.4 and mermaid update to 8.0.0-rc.8
+### Added
 
-### Bug Fixes
+- Created theme `gem`
+- Enabled text translations
+- Added heading anchor links
 
-- Replace Lenna test image
+### Changed
 
-## 2.1.0 (2018-08-26)
+- Changed code highlight colors
+- Changed from Stylus to SASS
 
-### Enhancements
+## [2.0.1] - 2020-01-30
 
-- Search panel (Click search icon in the header or press `s` or `/` key to search)
-- Npm social icon (@WangQiru)
+### Changed
 
-### Bug Fixes
+- Optimized to support disabled JS
 
-- Google analytics may not work, use gtag.js
+### Fixed
 
-## 2.0.2 (2018-07-29)
+- Fixed bugs
 
-### Enhancements
+## [2.0.0] - 2019-08-24
 
-- Highlight theme
-- Articles whit `sidebar.toc` support section navigator (previous and next navigator)
-- Aside Toc show immediately after page get ready (no more delay)
+### Added
 
-### Bug Fixes
+- Added optional [sidebar](docs/features.md#posts-sidebar)
+- Added optional [Featured post](docs/features.md#featured-post)
+- Added optional ["Before you go" modal](docs/features.md#before-you-go-modal)
+- Added optional [post pagination](docs/features.md#paginated-posts)
+- Added [post recommendation](docs/features.md#post-recommendation)
+- Added meta keywords to improve SEO
+- Added JSON-LD to improve SEO
+- Set up [Netlify CMS](docs/features.md#netlify-cms-ready)
 
-- Aside Toc may display error when scroll to bottom
+### Changed
 
-## 2.0.1 (2018-07-07)
+- Changed pagination to be [optional](docs/features.md#home-page-pagination)
+- Improved [Tags page](docs/features.md#tags-page)
+- Cleaned up and improved [Front Matter properties](docs/post.md#front-matter-properties)
+- Improved customization settings
+- Minor design updates
 
-> “All elements that respond to press should have a visual feedback when touched.”
->
-> —TouchableWithoutFeedback in *React Native Docs*
+## [1.0.1] - 2019-08-16
 
-### Enhancements
+### Changed
 
-- Some interaction details optimize: button and link add feedback when clicked, cancel button of input in archive layout, button focus style, etc
+- Upgraded to Gulp 4
 
-### Bug Fixes
+### Fixed
 
-- `mathjax` and `mermaid` setting may not work
+- Fixed bugs
 
-## 2.0.0 (2018-07-01)
+## [1.0.0] - 2019-08-16
 
-Breaking changes, please check [Update from 1.x to 2.x](https://kitian616.github.io/jekyll-TeXt-theme/docs/en/update-from-1-to-2) for details
+- Initial release
 
-### Enhancements
-
-- Authors
-- License
-- New layouts (page, article, landing, etc)
-
-## 1.5.0 (2018-03-18)
-
-### Enhancements
-
-- `text_color_theme` setting
-- Long pagination
-- Additional styles (Alert, Image)
-- Mathjax `autoNumber` setting (@liao961120)
-- Article heading anchor
-- Previous and next post
-- Search
-
-## 1.4.3 (2018-01-13)
-
-### Enhancements
-
-- New TOC style
-- Gitalk support (@WangQiru)
-- Mermaid support
-- `site.paths` and `site.nav_lists` configs support absolute URL
-
-## 1.4.2 (2017-12-10)
-
-### Enhancements
-
-- Use new liquid syntax `{%-` `-%}` to avoid unnecessary output whitespace
-- Add `paths.base` setting
-
-## 1.4.1 (2017-12-05)
-
-### Enhancements
-
-- New color themes(Chocolate, Orange)
-
-### Bug Fixes
-
-- Issues 9: the _posts file can't recorded by git
-
-## 1.4.0 (2017-11-19)
-
-### Enhancements
-
-- Internationalization
-
-### Bug Fixes
-
-- Table overflow-x smooth on iOS
-
-## 1.3.0 (2017-11-11)
-
-### Enhancements
-
-- Article tag supports special characters
-- Excerpts type (HTML | TEXT)
-- Titles on the phone become smaller
-- Change styles for table, code and blockquote
-
-## 1.2.2 (2017-11-04)
-
-### Enhancements
-
-- MathJax Support
-- Add “Read more” link at the end of article excerpt
-- 404 page
-
-### Bug Fixes
-
-- Fix Email link URL error
-- Fix Site Title link URL error
-- Fix table responsive style error
-
-## 1.2.1 (2017-10-27)
-
-### Enhancements
-
-- Optimize Article TOC
-
-### Bug Fixes
-
-- Pageview display error when the post key include `-` (@yuxianda)
-- Email url error
-
-## 1.2.0 (2017-10-22)
-
-### Enhancements
-
-- Article excerpt no more than 200 words
-- If `leancloud` is not set, 0 view won't display
-
-### Bug Fixes
-
-- Fix article TOC’s display error at proper situation
-- Fix footer social buttons not in the center bug
-
-## 1.1.0 (2017-10-19)
-
-### Enhancements
-
-- Color variables
-- More color themes (dark, forest, ocean)
-
-## 1.0.0 (2017-10-17)
-
-### Enhancements
-
-- Better article directories
-- Dark color theme

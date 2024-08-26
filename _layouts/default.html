@@ -1,41 +1,17 @@
 ---
+layout: compress
 ---
-<!doctype html>
-<html>
-  <head>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
-    </script>
-    <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/android-chrome-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/assets/icons/android-chrome-512x512.png">
-    <link rel="manifest" href="/assets/icons/site.webmanifest">
-  </head>
-  <body>
-    <div class="Margins">
-      <p class="LatexTitle">{{ page.title }}</p>
-      {% if page.author %} <p class="LatexName">{{ page.author }}</p> {% endif %}
-      {% if page.date %} <p class="LatexDate">{{ page.date }}</p> {% endif %}
-      
-      {% if page.abstract %}<div class="AbstractMargins">
-        <p class="LatexAbstract">Abstract</p>
-        <p class="LatexAbstractText">{{ page.abstract }}</p>
-      </div>{% endif %}
 
-      
-      {{ content }}
-
-
-    </div>
-  </body>
-  <footer class="footerSize">
-
-  </footer>
+<!DOCTYPE html>
+<html lang="{{ site.language }}" class="no-js">
+    {% include head.html %}
+    <body class="has-push-menu">
+        {% include svg-icons.html %}
+        {% include header.html %}
+            <section class="content">
+                {{ content }}
+            </section>
+        {% include footer.html %}
+    </body>
 </html>
+

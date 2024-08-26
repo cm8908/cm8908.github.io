@@ -1,10 +1,10 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
-
-# gem "rails"
-
+gem "kramdown"
+gem "kramdown-parser-gfm"
+gem "rouge"
 gem "jekyll"
-gem "jekyll-sitemap"
+gem "jekyll-paginate"
+gem "jekyll-paginate-content"
+gem "json"
+gem "jekflix"
