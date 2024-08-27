@@ -1,19 +1,17 @@
 ---
 layout: page
 menu: false
-date: '2020-02-27 01:53:59'
+date: '2024-08-27'
 title: About
 description: Some description.
 permalink: /about/
 ---
 
-<img class="img-rounded" src="/assets/img/uploads/profile.png" alt="Thomas A. Anderson" width="200">
+<img class="img-rounded" src="/assets/img/uploads/profile.webp" alt="Minseop F. Jung" width="200">
 
 # About
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+* 2024-08-27 블로그 리뉴얼 ([Jekflix theme](https://github.com/thiagorossener/jekflix-template))
+* 직관적이고 간결한 설명, 쉬운 설명
+* 휘발성 이해가 아닌 오래 기억에 남아 토대가 되는 지식의 이해를 추구합니다.
+* 작성된 포스트에 오류가 있다면 언제든 시원하게 지적해주세요.

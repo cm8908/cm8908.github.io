@@ -1,8 +1,7 @@
 # Site Settings
-name: Test-Name-
-title: Jekflix | Test title
-description: Jekflix is a template for Jekyll inspired by Netflix and made by
-  Thiago Rossener.
+name: Deepflix
+title: Deepflix | cm8908.github.io
+description: 직관적이고 오래 기억에 남는 이해를 추구합니다.
 tags:
   - blog
   - template
@@ -19,22 +18,22 @@ menu:
     url: /contact
   - title: Feed
     url: /feed.xml
-email: youremail@test.com
+email: jungminseob2@gmail.com
 # See: https://disqus.com/
-disqus_username: disqus_username
+disqus_username: disqus_username  # TODO:
 # Contact Form Setting
 # See: https://formspree.io/
-formspree_form_id: formspree_form_id
+formspree_form_id: formspree_form_id  # TODO:
 
 
 # Social Media Settings
 # Remove the item if you don't need it
-github_username: github_username
-facebook_username: facebook_username
-twitter_username: twitter_username
-instagram_username: instagram_username
-linkedin_username: linkedin_username
-medium_username: medium_username
+github_username: cm8908
+# facebook_username: facebook_username
+# twitter_username: twitter_username
+instagram_username: meansub
+linkedin_username: minseopjung
+# medium_username: medium_username
 
 
 # Posts Settings
@@ -46,9 +45,9 @@ two_columns_layout: true
 
 # Advanced Settings
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
-google_analytics: "UA-XXXXXXXX-X"
-language: "en"
+url: "cm8908.github.io" # the base hostname & protocol for your site
+google_analytics: "UA-XXXXXXXX-X"  # TODO:
+language: "ko"
 categories_folder: category
 sent_message_url: "/contact/message-sent/"
 
