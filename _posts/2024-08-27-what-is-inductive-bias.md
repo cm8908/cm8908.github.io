@@ -1,8 +1,8 @@
 ---
 date: 2024-08-27 01:41:47
 layout: post
-title: "Inductive Bias에 대한 고찰"
-subtitle: "Inductive bias (유도편향) - 그래서 그게 뭔데?"
+title: "Inductive Bias에 대한 고찰 - 그래서 그게 뭔데?"
+subtitle: "Inductive bias(유도 편항)에 대해, bias-variance trade-off 관점에서"
 description:
 image: "https://velog.velcdn.com/images/jmnsb/post/b386bd16-ce2e-43e4-8d80-dcd0b89d194a/image.png"
 optimized_image:
