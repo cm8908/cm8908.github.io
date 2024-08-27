@@ -371,11 +371,11 @@ collections:
                 name: "of"
                 widget: "string"
                 required: false
-              - label: "Next Page"
+              - label: "다음 페이지"
                 name: "next_page"
                 widget: "string"
                 required: false
-              - label: "Next Post"
+              - label: "다음 포스트"
                 name: "next_post"
                 widget: "string"
                 required: false
