@@ -620,7 +620,8 @@
 .post-content {
   .tags {
     @include center(rem(800px));
-    @include mainFont(400);
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
     font-size: rem(18px);
     margin: 0 auto rem(29px);
     margin-top: rem(30px);
@@ -634,6 +635,7 @@
     }
 
     a {
+      font-family: 'Titillium Web', sans-serif;
       font-size: rem(14px);
       color: $primaryDark;
       display: inline-block;
@@ -656,7 +658,8 @@
   }
 
   .tag-title {
-    @include mainFont(300);
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 300;
     @include center(rem(800px));
     font-size: rem(30px);
     margin-top: rem(20px);

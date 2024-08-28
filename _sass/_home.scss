@@ -24,6 +24,7 @@
 }
 
 .title-category {
+  font-family: 'Titillium Web', sans-serif;
   font-size: rem(32px);
   margin: 0 0 rem(40px);
   padding: 0 rem(23px);
@@ -99,9 +100,11 @@
     font-weight: bold;
     font-size: rem(18px);
     padding: 0 rem(15px);
+    font-family: 'Titillium Web', sans-serif;
 
     a {
       color: $accentDark;
+      font-family: 'Titillium Web', sans-serif;
     }
   }
 
@@ -145,6 +148,7 @@
       display: inline-block;
       margin: 0 rem(10px) rem(10px) 0;
       z-index: 50;
+      font-family: 'Titillium Web', sans-serif;
 
       &:hover {
         color: $primaryDark;

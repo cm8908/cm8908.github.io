@@ -76,7 +76,8 @@ aside.sidebar {
           display: block;
           padding: rem(15px) rem(20px);
           text-decoration: none;
-          @include mainFont(300);
+          font-family: 'Titillium Web', sans-serif;
+          font-weight: 300;
           color: $primaryDark;
 
           &:hover {

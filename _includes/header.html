@@ -2,12 +2,12 @@
     <a id="menu" role="button">
         <svg id="open" class="icon-menu"><use xlink:href="#icon-menu"></use></svg>
     </a>
-    <h1 class="logo">
-        <a href="{{ site.baseurl }}/">
+    <h1 class="logo" style="font-family: 'Titillium Web', sans-serif;">
+        <a href="{{ site.baseurl }}/" style="font-family: 'Titillium Web', sans-serif;">
             {% if site.use_logo %}
                 {% include logo.html %}
             {% else %}
-                {{ site.name }} <span class="version">{{ site.version }}</span>
+                <span style="font-family: 'Titillium Web', sans-serif;">{{ site.name }} <span class="version" style="font-family: 'Titillium Web', sans-serif;">{{ site.version }}</span></span>
             {% endif %}
         </a>
     </h1>
