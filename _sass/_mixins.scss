@@ -1,8 +1,8 @@
 @mixin mainFont($weight: 700) {
-  font-family: "Titillium Web", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Pretendard", "Titillium Web", "Helvetica Neue", Helvetica, sans-serif;
   font-weight: $weight;
   font-style: normal;
-}
+} // TODO:
 
 @mixin size($width: 30, $height: 30) {
   width: #{$width}px;
