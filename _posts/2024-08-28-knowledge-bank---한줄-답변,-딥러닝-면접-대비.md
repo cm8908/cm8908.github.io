@@ -7,7 +7,7 @@ subtitle: "개인적으로 딥러닝/머신러닝 엔지니어 면접을 준비�
 description:
 image: "https://st2.depositphotos.com/2121483/7207/v/450/depositphotos_72072995-stock-illustration-people-profile-heads-in-dialogs.jpg"
 optimized_image:
-category: "Career"
+category: career
 tags:
 - "Job Interview"
 - "Career"
