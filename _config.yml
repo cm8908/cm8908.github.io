@@ -11,13 +11,13 @@ tags:
 show_hero: true
 menu:
   - title: Home
-    url: /
+    url: https://cm8908.github.io/
   - title: About
-    url: /about
+    url: https://cm8908.github.io/about
   - title: Contact
-    url: /contact
+    url: https://cm8908.github.io/contact
   - title: Feed
-    url: /feed.xml
+    url: https://cm8908.github.io/feed.xml
 email: jungminseob2@gmail.com
 # See: https://disqus.com/
 disqus_username: disqus_username  # TODO:
