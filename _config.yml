@@ -46,7 +46,7 @@ two_columns_layout: true
 # Advanced Settings
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "cm8908.github.io" # the base hostname & protocol for your site
-google_analytics: "UA-XXXXXXXX-X"  # TODO:
+google_analytics: "G-JZ0RDD7EQB"  # TODO:
 language: "ko"
 categories_folder: category
 sent_message_url: "/contact/message-sent/"
