@@ -28,11 +28,15 @@ Transformer 아키텍쳐에 대해 조금이라도 알고 있는 사람이라면
 
 ## "Sinusoidal" (Absolute) Positional Encoding
 이름도 복잡한 이 인코딩을 본 게시글에서는 SinAPE라고 줄여서 지칭하겠다. 먼저 수식을 살펴보자.
+
 $$
-PE(pos,2i)=sin(pos/\omega)\newline
-PE(pos,2i+1)=cos(pos/\omega)\newline
+PE(pos,2i)=sin(pos/\omega)\\
+
+PE(pos,2i+1)=cos(pos/\omega)\\
+
 \text{where}\space\omega=10000^{2i/d}
 $$
+
 이름에서 알 수 있듯, SinAPE는 sin/cos 함수를 이요해 위치 정보를 표현한다. 구체적으로, 특정 위치 ($pos$)에서의 임베딩 공간에 대해 짝수번 인덱스($i=0, 2, 4, ...$)는 sin함수, 홀수번 인덱스($i=1, 3, 5, ...$)는 cos함수로 나타낸다.
 
 이렇게 sin과 cos를 함께(번갈아) 사용하는 또 다른 사례는 푸리에 변환(Fourier Transform)에서 찾아볼 수 있다. 푸리에 변환은 시간에 대한 함수(시간->진폭)를 주파수에 대한 함수(주파수->진폭)으로 변환해주는데, 이 때 신호를 다양한 주파수 (고주파/중주파/저주파) 성분으로 분해한다. 구체적으로 말하면, **서로 다른 주파수를 가지는 사인파와 코사인파의 선형 조합**으로 분해한다. 다시 말해 시간 도메인의 정보를 주파수 도메인으로 변환함으로써 신호가 어떤 주기성을 가지고 있는 지를 정밀하게 분석할 수 있게 해준다.
@@ -56,6 +60,7 @@ RPE는 (구현에 따라 다르긴 하지만) 일반적으로 표현 가능한 �
 최근 LLaMA를 비롯한 대부분의 최신 LLM에서는 RoPE를 positional encoding으로 사용한다. 마치 RoPE는 위치 인코딩 분야의 끝판왕인것처럼 보인다. 하지만 정말 그럴까? RoPE의 개념과 함께 왜 많은 최신 LLM들이 RoPE를 차용하고 있으며, RoPE의 한계점과 이를 극복하기 위한 여러 방안들을 알아보자.
 
 RoPE는 이름에서 알 수 있듯, 벡터의 회전(Rotation)을 이용하여 임베딩에 위치 정보를 삽입하는 방식으로 작동한다. 잠시 학부 컴퓨터 그래픽스 시간의 기억을 더듬어 회전 행렬에 대해 상기해보자. 벡터 $\left[x, y\right]^T$를 각도 $\theta$만큼 회전하려면, 다음과 같이 회전 행렬을 행렬곱해주면 된다.
+
 $$
 \begin{bmatrix}
 x' \\
@@ -72,12 +77,16 @@ y
 \end{bmatrix}
 $$
 
+
 위와 같은 회전 연산을 복소수 공간에서 오일러 공식을 이용해 구현하기도 한다. 가령 위와 같은 벡터 $\left[x, y\right]^T$를 복소수로 나타내면 $z=x+iy$와 같은 꼴이 되는데, 여기에 오일러 공식 $e^{i\theta}=\cos\theta+i\sin\theta$을 곱해주면 결과적으로 $z'=(x\cos\theta+y\sin\theta)+i(-x\sin\theta+y\cos\theta)$로 위의 행렬곱 결과를 복소수로 표현한 것과 같은 결과가 나온다. 복소수를 이용한 회전 연산과 RoPE의 원리는 [이 Medium 블로그](https://medium.com/@hugmanskj/mastering-llama-rotary-positional-embedding-rope-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-9b1963a22852)에 정말 잘 정리되어 있고 필자도 도움을 얻었다. 궁금하신 분들은 참고하시도록.
 
 아무튼 $d$ 차원의 임베딩 벡터에 대해 회전 연산을 수행하기 위해, $d$ 차원을 두 개 씩 짝지었다. 이를 통해 총 $d/2$개의 Pair가 만들어지고, 여기에 서로 다른 각도만큼 회전 연산을 적용하여 위치 정보를 삽입할 수 있다. 이 때 적용할 회전의 각도는 다음 수식과 같이 계산된다.
+
 $$
 PE(pos,2i)=\cos(\theta_i(pos))\\
+
 PE(pos,2i+1)=\sin(\theta_i(pos))\\
+
 \text{where}\space\theta_i(pos)=\frac{pos}{10000^{2i/d}}
 $$
 
@@ -89,6 +98,7 @@ $$
 이러한 RoPE에도 실질적인 한계가 존재하는데, 바로 RoPE가 훈련 당시 설정된 최대 sequence length 이상으로는 일반화가 잘 되지 않는다는 점이다. RoPE의 각도 계산 수식을 따르면, 토큰의 위치 인덱스($pos$)가 클수록 각도 $\theta_i$가 빠르게 증가한다(즉, 과도하게 회전한다). 특히 $\omega=10000^{2i/d}$가 큰 고주파 성분에서는 위치 $pos$가 조금만 증가해도 각도는 훨씬 빠르게 회전한다. 그러다가 각도가 $2\pi$에 도달하면 sin/cos값이 주기적으로 되풀이되고, 이 지점에서부터는 위치 정보의 구분이 어려워 진다. 
 
 RoPE Scaling은 이러한 한계를 방지하고자 회전 각도의 증가를 늦추는 기법이다. 가장 간단한 Rope Scaling 방법은 Position Interpolation(PI)로, scaling factor $s$를 곱해주어 위치 인덱스를 스케일링하고, 더욱 촘촘하게 만들어 긴 시퀀스 길이에서 일반화 가능하도록 만들어준다.
+
 $$
 \theta_i(pos)=\frac{pos\cdot s}{\omega}
 $$
