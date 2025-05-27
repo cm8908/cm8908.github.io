@@ -8,8 +8,15 @@ image:
 optimized_image:
 category:
 tags:
-author:
-paginate: false
+- RoPE
+- Positional encoding
+- Relative positional encoding
+- RoPE scaling
+- YaRN
+- Fourier transform
+author: minseopjung
+paginate: true
+math: true
 ---
 
 # Positional Encoding의 등장
